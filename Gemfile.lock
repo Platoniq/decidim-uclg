@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/Platoniq/decidim-module-term_customizer
+  revision: f47dd176883e3f7c93cfc17b35632a14278934d7
+  specs:
+    decidim-term_customizer (0.21.0)
+      decidim-admin (~> 0.21.0)
+      decidim-core (~> 0.21.0)
+
+GIT
   remote: https://github.com/decidim/decidim
   revision: 71c1aa1edc9288fad0ec22ce38225e75ea56e195
   branch: 0.21-stable
@@ -61,6 +69,15 @@ GIT
       decidim-core (= 0.21.0)
       jquery-rails (~> 4.3)
       redcarpet (~> 3.4)
+    decidim-conferences (0.21.0)
+      decidim-core (= 0.21.0)
+      decidim-meetings (= 0.21.0)
+      wicked_pdf (~> 1.4)
+      wkhtmltopdf-binary (~> 0.12)
+    decidim-consultations (0.21.0)
+      decidim-admin (= 0.21.0)
+      decidim-comments (= 0.21.0)
+      decidim-core (= 0.21.0)
     decidim-core (0.21.0)
       active_link_to (~> 1.0)
       anchored (>= 1.1.0)
@@ -153,6 +170,17 @@ GIT
       decidim-core (= 0.21.0)
     decidim-generators (0.21.0)
       decidim-core (= 0.21.0)
+    decidim-initiatives (0.21.0)
+      decidim-admin (= 0.21.0)
+      decidim-comments (= 0.21.0)
+      decidim-core (= 0.21.0)
+      decidim-verifications (= 0.21.0)
+      kaminari (~> 1.2)
+      origami (~> 2.1)
+      virtus-multiparams (~> 0.1)
+      wicked (~> 1.3)
+      wicked_pdf (~> 1.4)
+      wkhtmltopdf-binary (~> 0.12)
     decidim-meetings (0.21.0)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.9)
@@ -311,6 +339,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    colorize (0.8.1)
     concurrent-ruby (1.1.6)
     connection_pool (2.2.3)
     crack (0.4.3)
@@ -431,7 +460,7 @@ GEM
     httparty (0.18.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
-    i18n (1.8.3)
+    i18n (1.8.4)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.31)
       activesupport (>= 4.0.2)
@@ -506,7 +535,7 @@ GEM
     mixlib-config (2.2.18)
       tomlrb
     msgpack (1.3.3)
-    multi_json (1.14.1)
+    multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     mustache (1.1.1)
@@ -543,6 +572,8 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
+    origami (2.1.0)
+      colorize (~> 0.7)
     orm_adapter (0.5.0)
     paper_trail (10.3.1)
       activerecord (>= 4.2)
@@ -554,7 +585,7 @@ GEM
     pg_search (2.3.2)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
-    premailer (1.11.1)
+    premailer (1.12.1)
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
@@ -759,6 +790,8 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
+    virtus-multiparams (0.1.1)
+      virtus (~> 1.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -770,11 +803,16 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    websocket-driver (0.7.2)
+    websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    wicked (1.3.4)
+      railties (>= 3.0.7)
+    wicked_pdf (1.4.0)
+      activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
+    wkhtmltopdf-binary (0.12.6.2)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -785,7 +823,11 @@ DEPENDENCIES
   bootsnap (~> 1.4)
   byebug (~> 11.0)
   decidim!
+  decidim-conferences!
+  decidim-consultations!
   decidim-dev!
+  decidim-initiatives!
+  decidim-term_customizer!
   faker (~> 1.9)
   fog-aws
   health_check

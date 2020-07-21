@@ -7,8 +7,10 @@ ruby RUBY_VERSION
 DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "0.21-stable" }
 
 gem "decidim", DECIDIM_VERSION
-# gem "decidim-consultations", DECIDIM_VERSION
-# gem "decidim-initiatives", DECIDIM_VERSION
+gem "decidim-initiatives", DECIDIM_VERSION
+gem "decidim-consultations", DECIDIM_VERSION
+gem "decidim-conferences", DECIDIM_VERSION
+gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer"
 
 gem "bootsnap", "~> 1.4"
 gem "health_check"
