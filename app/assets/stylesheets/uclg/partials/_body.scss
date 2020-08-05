@@ -1,0 +1,43 @@
+
+@font-face {
+  font-family: 'OpenSans Regular';
+  src: 
+    font-url('uclg/OpenSans-Regular.woff2') format('woff2'),
+    font-url('uclg/OpenSans-Regular.woff') format('woff'),
+    font-url('uclg/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'OpenSans Bold';
+  src: 
+    font-url('uclg/OpenSans-Bold.woff2') format('woff2'),
+    font-url('uclg/OpenSans-Bold.woff') format('woff'),
+    font-url('uclg/OpenSans-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'OpenSans Regular', sans-serif;
+}
+
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6{
+  font-family: 'OpenSans Bold', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  color: inherit;
+  // text-rendering: optimizeLegibility;
+  // letter-spacing: -.5px;
+}
