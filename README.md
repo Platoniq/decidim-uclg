@@ -1,5 +1,7 @@
 # UCLG
 
+![Build](https://github.com/Platoniq/decidim-uclg/workflows/Build/badge.svg)
+
 Free Open-Source participatory democracy, citizen participation and open government for cities and organizations
 
 This is the open-source repository for UCLG, based on [Decidim](https://github.com/decidim/decidim).
