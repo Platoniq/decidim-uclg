@@ -1,0 +1,53 @@
+@import "variables";
+@import "foundation";
+
+.title-bar {
+  padding: 1.5rem 0.5rem;
+  background-color: $title-bar-bg;
+  color: $title-bar-color;
+}
+
+.navbar {
+  font-family: 'OpenSans Bold', sans-serif;
+  background-color: $navbar-color;
+
+	.main-nav__link {
+		a {
+			color: $navbar-fg;
+		}
+
+		&--active a {
+			color: $navbar-bg;
+		}
+	}
+}
+
+
+.topbar_{
+  &_search{
+    input,
+    input:focus{
+      background-color: $navbar-color;
+      color: $navbar-fg-hover;
+      border: 1px solid;
+    }
+
+    input::placeholder,
+    textarea::placeholder{
+      color: $navbar-fg-hover;
+    }
+
+    svg{
+      color: $navbar-fg-hover;
+    }
+  }
+
+}
+
+.topbar__dropmenu > ul > li > a {
+  color: $navbar-fg !important;
+
+  &::after {
+    border-top-color: $uclg-orange !important;
+  }
+}
