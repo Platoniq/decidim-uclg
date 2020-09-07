@@ -1,24 +1,24 @@
 
 @font-face {
-  font-family: 'OpenSans Regular';
+  font-family: 'OfficinaSans Book';
   src: 
-    font-url('uclg/OpenSans-Regular.woff2') format('woff2'),
-    font-url('uclg/OpenSans-Regular.woff') format('woff'),
-    font-url('uclg/OpenSans-Regular.ttf') format('truetype');
+    font-url('uclg/itc-officina-sans-std-book.woff2') format('woff2'),
+    font-url('uclg/itc-officina-sans-std-book.woff') format('woff'),
+    font-url('uclg/itc-officina-sans-std-book.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'OpenSans Bold';
+  font-family: 'OfficinaSans Bold';
   src: 
-    font-url('uclg/OpenSans-Bold.woff2') format('woff2'),
-    font-url('uclg/OpenSans-Bold.woff') format('woff'),
-    font-url('uclg/OpenSans-Bold.ttf') format('truetype');
+    font-url('uclg/itc-officina-sans-std-bold.woff2') format('woff2'),
+    font-url('uclg/itc-officina-sans-std-bold.woff') format('woff'),
+    font-url('uclg/itc-officina-sans-std-bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 body {
-  font-family: 'OpenSans Regular', sans-serif;
+  font-family: 'OfficinaSans Book', sans-serif;
 }
 
 
@@ -34,7 +34,7 @@ h5,
 .h5,
 h6,
 .h6{
-  font-family: 'OpenSans Bold', sans-serif;
+  font-family: 'OfficinaSans Bold', sans-serif;
   font-style: normal;
   font-weight: normal;
   color: inherit;
