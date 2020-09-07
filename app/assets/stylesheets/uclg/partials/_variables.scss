@@ -4,16 +4,16 @@ $uclg-green: #43ea00;
 $uclg-green-rgb: 67,234,0;
 $uclg-red: #ff0000;
 $uclg-red-rgb: 255,0,0;
-$uclg-grey: #3c5959;
-$uclg-grey-rgb: 60,89,89;
+$uclg-grey: #575756;
+$uclg-grey-rgb: 87,87,86;
 $uclg-orange: #EC6221;
 $uclg-orange-rgb: 236,98,33;
 
 $body-font-color: #494949;
 $body-background-color: #fafafa;
-$navbar-color: #ffffff;
+$navbar-color: $uclg-grey;
 $navbar-rgb: 35,31,32;
-$title-bar-color: $uclg-grey;
+$title-bar-color: #ffffff;
 $title-bar-rgb: 0,0,0;
 // Variables
 
@@ -29,13 +29,13 @@ $alert: #EE3138;
 $alert-rgb: 239,45,86;
 
 $link-color: #ffffff;
-$title-bar-bg: #ffffff;
-$navbar-fg: $uclg-grey;
-$navbar-fg-hover: $uclg-grey;
-$navbar-bg: $uclg-orange;
+$title-bar-bg: $uclg-grey;
+$navbar-fg: #ffffff;
+$navbar-fg-hover: #ffffff;
+$navbar-bg: $uclg-grey;
 
-$footer-main-bg: #6b6669;
-$footer-mini-bg: #837d81;
+$footer-main-bg: #575756;
+$footer-mini-bg: #575756;
 
 $proposals: #238ff7;
 $actions: #6eeb83;
