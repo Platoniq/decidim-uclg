@@ -43,6 +43,12 @@
     &::after {
         border-width: 15px 0 0 15px;
     }
+
+    .topbar {
+      .topbar__menu {
+        z-index: 100;
+      }
+    }
   }
 }
 
