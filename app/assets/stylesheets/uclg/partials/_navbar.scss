@@ -6,6 +6,12 @@
   background-color: $title-bar-bg;
   color: $title-bar-color;
 
+  .topbar {
+    div {
+      z-index: 100;
+    }
+  }
+
   &::before,
   &::after {
       content: "";
@@ -42,12 +48,6 @@
 
     &::after {
         border-width: 15px 0 0 15px;
-    }
-
-    .topbar {
-      .topbar__menu {
-        z-index: 100;
-      }
     }
   }
 }
