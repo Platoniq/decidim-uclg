@@ -6,6 +6,12 @@
   background-color: $title-bar-bg;
   color: $title-bar-color;
 
+  .topbar {
+    div {
+      z-index: 100;
+    }
+  }
+
   &::before,
   &::after {
       content: "";
@@ -29,6 +35,21 @@
       border-width: 30px 0 0 30px;
   }
 
+  @media only screen and (max-width: 640px) {
+    &::before,
+    &::after {
+        width: 50px;
+        height: 50px;
+    }
+
+    &::before {
+        border-width: 15px 15px 0 0;
+    }
+
+    &::after {
+        border-width: 15px 0 0 15px;
+    }
+  }
 }
 
 .navbar {
