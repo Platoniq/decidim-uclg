@@ -88,4 +88,15 @@ Rails.application.config.to_prepare do
       broadcast(:ok)
     end
   end
+
+  ###### Debates official user customization
+  Decidim::Debates::OfficialAuthorPresenter.class_eval do
+    def name
+      "#UCLGMeets"
+    end
+
+    def avatar_url
+      ActionController::Base.helpers.asset_path("uclg/logo-uclg.png")
+    end
+  end
 end

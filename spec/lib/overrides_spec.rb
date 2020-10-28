@@ -31,12 +31,21 @@ checksums = [
       # classes
       "/app/controllers/decidim/assemblies/admin/participatory_space_private_users_controller.rb" => "af5800660a90e5391414254b73f475d8"
     }
+  }, {
+    package: "decidim-debates",
+    files: {
+      # views
+      "/app/views/decidim/debates/debates/index.html.erb" => "00f61a3f8757ebe89f922378a92c556c",
+      "/app/presenters/decidim/debates/official_author_presenter.rb" => "06c779f89a3779c05fdb68a2b9bf56d4"
+      # classes
+    }
   }
 ]
 
 describe "Overriden files", type: :view do
+  # rubocop:disable Rails/DynamicFindBy
   checksums.each do |item|
-    spec = ::Gem::Specification.find_by(name: item[:package])
+    spec = ::Gem::Specification.find_by_name(item[:package])
 
     item[:files].each do |file, signature|
       it "#{spec.gem_dir}#{file} matches checksum" do
@@ -44,6 +53,7 @@ describe "Overriden files", type: :view do
       end
     end
   end
+  # rubocop:enable Rails/DynamicFindBy
 
   private
 
