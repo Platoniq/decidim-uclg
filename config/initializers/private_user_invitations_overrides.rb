@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 def current_private_invite_instructions(private_user_to)
-  default = Rails.application.secrets.dig(:private_invites, private_user_to.organization.host.to_sym, :default) 
+  default = Rails.application.secrets.dig(:private_invites, private_user_to.organization.host.to_sym, :default)
   default = "invite_private_user" if default.nil?
   custom = Rails.application.secrets.dig(:private_invites, private_user_to.organization.host.to_sym, private_user_to.manifest.name, private_user_to.slug.to_sym)
 
@@ -70,7 +72,7 @@ Rails.application.config.to_prepare do
         Rails.logger.warn "SKIPPED user invitation-again mail for #{user.email}"
         skip_invitation = true
       end
-      
+
       user.invite!(user.invited_by, invitation_instructions: instructions, skip_invitation: skip_invitation)
       broadcast(:ok)
     end

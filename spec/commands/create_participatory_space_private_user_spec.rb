@@ -21,7 +21,7 @@ module Decidim::Admin
         name: name
       )
     end
-    let(:template) { }
+    let(:template) {}
 
     before do
       Rails.application.secrets.private_invites = {
@@ -122,10 +122,10 @@ module Decidim::Admin
     end
 
     context "when default template is false" do
-      let(:template) do 
+      let(:template) do
         {
           default: false
-        } 
+        }
       end
 
       it "returns the default" do
@@ -137,24 +137,25 @@ module Decidim::Admin
     end
 
     context "when default template is something" do
-      let(:template) do 
+      let(:template) do
         {
           default: "something"
-        } 
+        }
       end
+
       it "returns the default" do
         expect(subject.invitation_instructions).to eq("something")
       end
     end
 
     context "when a host template is defined" do
-      let(:template) do 
+      let(:template) do
         {
-          :default => "something",
+          default: "something",
           assemblies: {
             privatable_to.slug.to_sym => "another"
           }
-        } 
+        }
       end
 
       it "returns the specific" do

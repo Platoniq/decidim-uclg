@@ -9,6 +9,6 @@ class DropDecidimCategoryIdFromSortitions < ActiveRecord::Migration[5.1]
   def down
     add_reference :decidim_module_sortitions_sortitions, :decidim_category,
                   foreign_key: true,
-                  index: { name: "index_sortitions__on_category" }
+                  index: { name: 'index_sortitions__on_category' }
   end
 end

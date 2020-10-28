@@ -16,14 +16,14 @@ class CreateUniqueNicknames < ActiveRecord::Migration[5.1]
     end
 
     add_index :decidim_users,
-              %w(nickname decidim_organization_id),
+              %w[nickname decidim_organization_id],
               where: "(deleted_at IS NULL) AND (managed = 'f')",
-              name: "index_decidim_users_on_nickame_and_decidim_organization_id",
+              name: 'index_decidim_users_on_nickame_and_decidim_organization_id',
               unique: true
   end
 
   def down
-    remove_index :decidim_users, %w(nickname decidim_organization_id)
+    remove_index :decidim_users, %w[nickname decidim_organization_id]
 
     remove_column :decidim_users, :nickname
   end

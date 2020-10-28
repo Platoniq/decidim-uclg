@@ -16,29 +16,28 @@ checksums = [
       "/app/views/layouts/decidim/mailer.html.erb" => "5bbe335c1dfd02f8448af287328a49dc",
       # classes
       "/app/commands/decidim/invite_user.rb" => "30b3d50ffe162180f2a0ba30a76db745",
-      "/app/commands/decidim/invite_user_again.rb" => "a32e2f24d653c81aebc77af128f477d1",
+      "/app/commands/decidim/invite_user_again.rb" => "a32e2f24d653c81aebc77af128f477d1"
     }
-  },{
+  }, {
     package: "decidim-admin",
     files: {
       # classes
       "/app/controllers/decidim/admin/concerns/has_private_users.rb" => "c40d4da1b9b4fa389fdb60a0d0e2e8f7",
-      "/app/commands/decidim/admin/create_participatory_space_private_user.rb" => "3218d35c8bbc77abfbbc56ba1d2bf427",
+      "/app/commands/decidim/admin/create_participatory_space_private_user.rb" => "3218d35c8bbc77abfbbc56ba1d2bf427"
     }
-  },{
+  }, {
     package: "decidim-assemblies",
     files: {
       # classes
-      "/app/controllers/decidim/assemblies/admin/participatory_space_private_users_controller.rb" => "af5800660a90e5391414254b73f475d8",
+      "/app/controllers/decidim/assemblies/admin/participatory_space_private_users_controller.rb" => "af5800660a90e5391414254b73f475d8"
     }
   }
 ]
 
 describe "Overriden files", type: :view do
   checksums.each do |item|
-    # rubocop:disable Rails/DynamicFindBy
-    spec = ::Gem::Specification.find_by_name(item[:package])
-    # rubocop:enable Rails/DynamicFindBy
+    spec = ::Gem::Specification.find_by(name: item[:package])
+
     item[:files].each do |file, signature|
       it "#{spec.gem_dir}#{file} matches checksum" do
         expect(md5("#{spec.gem_dir}#{file}")).to eq(signature)
