@@ -5,7 +5,7 @@ Decidim.configure do |config|
   config.mailer_sender = "info@uclg.org"
 
   # Change these lines to set your preferred locales
-  config.default_locale = :ca
+  config.default_locale = :en
   config.available_locales = [:ca, :es, :en, :fr, :it]
 
   # Geocoder configuration
