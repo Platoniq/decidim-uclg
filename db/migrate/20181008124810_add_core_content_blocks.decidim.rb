@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim (originally 20180730071851)
 
 class AddCoreContentBlocks < ActiveRecord::Migration[5.2]
@@ -11,7 +12,7 @@ class AddCoreContentBlocks < ActiveRecord::Migration[5.2]
   end
 
   def change
-    default_blocks = [:hero, :sub_hero, :highlighted_content_banner, :how_to_participate, :stats, :footer_sub_hero]
+    default_blocks = %i[hero sub_hero highlighted_content_banner how_to_participate stats footer_sub_hero]
 
     Organization.pluck(:id).each do |organization_id|
       default_blocks.each_with_index do |manifest_name, index|

@@ -17,7 +17,7 @@ class AddChoicesToDecidimSurveyAnswers < ActiveRecord::Migration[5.1]
     SurveyAnswer.find_each do |answer|
       question = SurveyQuestion.find_by(id: answer.decidim_survey_question_id)
 
-      if %w(single_option multiple_option).include?(question.question_type)
+      if %w[single_option multiple_option].include?(question.question_type)
         answer.update!(choices: answer.body)
       else
         answer.update!(text_body: answer.body.first)
@@ -34,7 +34,7 @@ class AddChoicesToDecidimSurveyAnswers < ActiveRecord::Migration[5.1]
     SurveyAnswer.find_each do |answer|
       question = SurveyQuestion.find_by(id: answer.decidim_survey_question_id)
 
-      if %w(single_option multiple_option).include?(question.question_type)
+      if %w[single_option multiple_option].include?(question.question_type)
         answer.update!(jsonb_body: answer.choices)
       else
         answer.update!(jsonb_body: [answer.body])

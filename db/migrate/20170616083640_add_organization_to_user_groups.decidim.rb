@@ -5,7 +5,7 @@ class AddOrganizationToUserGroups < ActiveRecord::Migration[5.0]
   class UserGroup < ApplicationRecord
     self.table_name = :decidim_user_groups
   end
-  
+
   def change
     add_column :decidim_user_groups, :decidim_organization_id, :integer
 

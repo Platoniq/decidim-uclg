@@ -10,12 +10,12 @@ class CreateDecidimFollows < ActiveRecord::Migration[5.1]
     end
 
     add_index :decidim_follows,
-              [:decidim_user_id, :decidim_followable_id, :decidim_followable_type],
+              %i[decidim_user_id decidim_followable_id decidim_followable_type],
               unique: true,
-              name: "index_uniq_on_follows_user_and_followable"
+              name: 'index_uniq_on_follows_user_and_followable'
     add_index :decidim_follows,
-              [:decidim_followable_id, :decidim_followable_type],
+              %i[decidim_followable_id decidim_followable_type],
               unique: true,
-              name: "index_uniq_on_followable"
+              name: 'index_uniq_on_followable'
   end
 end

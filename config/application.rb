@@ -1,12 +1,14 @@
-require_relative 'boot'
+# frozen_string_literal: true
 
-require 'rails/all'
+require_relative "boot"
+
+require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Catencomu
+module Uclg
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
@@ -18,8 +20,8 @@ module Catencomu
   end
 end
 
-unless ENV['DISABLE_SENTRY']
+unless ENV["DISABLE_SENTRY"]
   Raven.configure do |config|
-    config.dsn = ENV['SENTRY_DSN']
+    config.dsn = ENV["SENTRY_DSN"]
   end
 end
