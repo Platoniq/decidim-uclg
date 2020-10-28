@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This migration comes from decidim_initiatives (originally 20191002082220)
 
 class MoveSignatureTypeToInitativeType < ActiveRecord::Migration[5.2]
@@ -7,7 +8,7 @@ class MoveSignatureTypeToInitativeType < ActiveRecord::Migration[5.2]
   end
 
   def change
-    if !ActiveRecord::Base.connection.table_exists?("decidim_initiatives_types")
+    unless ActiveRecord::Base.connection.table_exists?('decidim_initiatives_types')
       Rails.logger.info "Skipping migration since there's no InitiativesType table"
       return
     end

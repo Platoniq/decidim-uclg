@@ -28,8 +28,6 @@ class MigrateOldResults < ActiveRecord::Migration[5.1]
     # Store existing accountability results in memory
     results = Result.all.to_a
     Result.delete_all
-
-    # rubocop:disable Rails/SkipsModelValidations
     old_results = OldResult.all.to_a
     old_results.each do |old_result|
       Result.create!(
@@ -60,35 +58,34 @@ class MigrateOldResults < ActiveRecord::Migration[5.1]
         created_at: result.created_at,
         updated_at: result.updated_at,
         children_count: result.children_count,
-        legacy_id: result.id,
+        legacy_id: result.id
       )
 
       Categorization.where(
         categorizable_id: result.id,
-        categorizable_type: "Decidim::Accountability::Result"
+        categorizable_type: 'Decidim::Accountability::Result'
       ).update_all("categorizable_id = #{new_result.id}")
 
       ResourceLink.where(
         from_id: result.id,
-        from_type: "Decidim::Accountability::Result"
+        from_type: 'Decidim::Accountability::Result'
       ).update_all("from_id = #{new_result.id}")
     end
 
     old_results.each do |old_result|
       Categorization.where(
         categorizable_id: old_result.id,
-        categorizable_type: "Decidim::Results::Result"
+        categorizable_type: 'Decidim::Results::Result'
       ).update_all("categorizable_type = 'Decidim::Accountability::Result'")
 
       ResourceLink.where(
         from_id: old_result.id,
-        from_type: "Decidim::Results::Result"
+        from_type: 'Decidim::Results::Result'
       ).update_all("from_type = 'Decidim::Accountability::Result'")
     end
-    
-    Feature.where(manifest_name: "results").update_all("manifest_name = 'accountability'")
+
+    Feature.where(manifest_name: 'results').update_all("manifest_name = 'accountability'")
 
     drop_table :decidim_results_results
   end
-  # rubocop:enable Rails/SkipsModelValidations
 end

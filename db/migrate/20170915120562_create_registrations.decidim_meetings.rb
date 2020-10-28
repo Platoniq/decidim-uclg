@@ -10,6 +10,6 @@ class CreateRegistrations < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    add_index :decidim_meetings_registrations, [:decidim_user_id, :decidim_meeting_id], unique: true, name: "decidim_meetings_registrations_user_meeting_unique"
+    add_index :decidim_meetings_registrations, %i[decidim_user_id decidim_meeting_id], unique: true, name: 'decidim_meetings_registrations_user_meeting_unique'
   end
 end

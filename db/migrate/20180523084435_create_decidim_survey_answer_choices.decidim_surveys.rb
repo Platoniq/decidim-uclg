@@ -20,8 +20,8 @@ class CreateDecidimSurveyAnswerChoices < ActiveRecord::Migration[5.1]
 
   def up
     create_table :decidim_surveys_survey_answer_choices do |t|
-      t.references :decidim_survey_answer, index: { name: "index_decidim_surveys_answer_choices_answer_id" }
-      t.references :decidim_survey_answer_option, index: { name: "index_decidim_surveys_answer_choices_answer_option_id" }
+      t.references :decidim_survey_answer, index: { name: 'index_decidim_surveys_answer_choices_answer_id' }
+      t.references :decidim_survey_answer_option, index: { name: 'index_decidim_surveys_answer_choices_answer_option_id' }
       t.jsonb :body
     end
 

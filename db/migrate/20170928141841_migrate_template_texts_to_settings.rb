@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MigrateTemplateTextsToSettings < ActiveRecord::Migration[5.1]
   class Feature < ApplicationRecord
     self.table_name = :decidim_features
@@ -10,7 +12,7 @@ class MigrateTemplateTextsToSettings < ActiveRecord::Migration[5.1]
   def up
     TemplateText.find_each do |template_text|
       feature = Feature.find(template_text.decidim_feature_id)
-      feature.settings["global"].merge!(
+      feature.settings['global'].merge!(
         intro: template_text.intro,
         categories_label: template_text.categories_label,
         subcategories_label: template_text.subcategories_label,

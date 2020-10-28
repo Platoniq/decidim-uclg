@@ -37,3 +37,5 @@ public/uploads
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 .rbenv-vars
+.rspec-failures
+decidim_dummy_app
