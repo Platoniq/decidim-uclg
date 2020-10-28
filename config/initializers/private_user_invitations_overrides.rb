@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-def current_private_invite_instructions(private_user_to)
-  default = Rails.application.secrets.dig(:private_invites, private_user_to.organization.host.to_sym, :default)
+def current_private_invite_instructions(space)
+  default = Rails.application.secrets.dig(:private_invites, space.organization.host.to_sym, :default)
   default = "invite_private_user" if default.nil?
-  custom = Rails.application.secrets.dig(:private_invites, private_user_to.organization.host.to_sym, private_user_to.manifest.name, private_user_to.slug.to_sym)
+  custom = Rails.application.secrets.dig(:private_invites, space.organization.host.to_sym, space.manifest.name, space.slug.to_sym)
 
   custom || default
 end
@@ -19,6 +19,17 @@ Rails.application.config.to_prepare do
   # Override manual re-sending method
   # TODO: processes
   Decidim::Assemblies::Admin::ParticipatorySpacePrivateUsersController.class_eval do
+    before_action on: [:index] do
+      instructions = current_private_invite_instructions(current_participatory_space)
+      flash.now[:notice] = if instructions == "invite_private_user"
+                             "Adding users to this assembly will send standard invitation instructions"
+                           elsif instructions.blank?
+                             "Adding users to this assembly won't send any invitation email"
+                           else
+                             "Adding users to this assembly will send specific invitation instructions [#{instructions}]"
+                           end
+    end
+
     def resend_invitation
       @private_user = collection.find(params[:id])
       enforce_permission_to :invite, :space_private_user, private_user: @private_user
@@ -56,11 +67,9 @@ Rails.application.config.to_prepare do
         skip_invitation = true
       end
 
-      @user.invite!(
-        form.invited_by,
-        invitation_instructions: form.invitation_instructions,
-        skip_invitation: skip_invitation
-      )
+      @user.invite!(form.invited_by, invitation_instructions: form.invitation_instructions) do |u|
+        u.skip_invitation = skip_invitation
+      end
     end
   end
 
@@ -73,7 +82,9 @@ Rails.application.config.to_prepare do
         skip_invitation = true
       end
 
-      user.invite!(user.invited_by, invitation_instructions: instructions, skip_invitation: skip_invitation)
+      user.invite!(user.invited_by, invitation_instructions: instructions) do |u|
+        u.skip_invitation = skip_invitation
+      end
       broadcast(:ok)
     end
   end
