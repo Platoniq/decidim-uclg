@@ -5,7 +5,9 @@ def current_private_invite_instructions(space)
   default = "invite_private_user" if default.nil?
   custom = Rails.application.secrets.dig(:private_invites, space.organization.host.to_sym, space.manifest.name, space.slug.to_sym)
 
-  custom || default
+  return default if custom.nil?
+
+  custom
 end
 
 Rails.application.config.to_prepare do

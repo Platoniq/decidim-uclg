@@ -86,7 +86,7 @@ module Decidim::Admin
 
     shared_examples "creates mailer jobs" do |instructions|
       shared_examples "confirmation email" do
-        it "does not send the confirmation email" do
+        it "send the confirmation email" do
           clear_enqueued_jobs
           subject.call
 
@@ -94,8 +94,9 @@ module Decidim::Admin
           expect(jobs.count).to eq 1
 
           _, _, _, queued_user, _, queued_options = ActiveJob::Arguments.deserialize(jobs.first[:args])
+
           expect(queued_user).to eq(user)
-          expect(queued_options).to eq(invitation_instructions: instructions, skip_invitation: !instructions)
+          expect(queued_options).to eq(invitation_instructions: instructions)
         end
       end
 
@@ -109,6 +110,16 @@ module Decidim::Admin
         end
 
         it_behaves_like "confirmation email"
+      end
+    end
+
+    shared_examples "do not create mailer jobs" do
+      it "send the confirmation email" do
+        clear_enqueued_jobs
+        subject.call
+
+        jobs = ActiveJob::Base.queue_adapter.enqueued_jobs
+        expect(jobs.count).to eq 0
       end
     end
 
@@ -133,7 +144,7 @@ module Decidim::Admin
       end
 
       it_behaves_like "creates private users"
-      it_behaves_like "creates mailer jobs", false
+      it_behaves_like "do not create mailer jobs"
     end
 
     context "when default template is something" do
@@ -146,6 +157,9 @@ module Decidim::Admin
       it "returns the default" do
         expect(subject.invitation_instructions).to eq("something")
       end
+
+      it_behaves_like "creates private users"
+      it_behaves_like "creates mailer jobs", "something"
     end
 
     context "when a host template is defined" do
@@ -161,6 +175,27 @@ module Decidim::Admin
       it "returns the specific" do
         expect(subject.invitation_instructions).to eq("another")
       end
+
+      it_behaves_like "creates private users"
+      it_behaves_like "creates mailer jobs", "another"
+    end
+
+    context "when a host template is false" do
+      let(:template) do
+        {
+          default: "something",
+          assemblies: {
+            privatable_to.slug.to_sym => false
+          }
+        }
+      end
+
+      it "returns the specific" do
+        expect(subject.invitation_instructions).to eq(false)
+      end
+
+      it_behaves_like "creates private users"
+      it_behaves_like "do not create mailer jobs"
     end
   end
 end
