@@ -29,7 +29,7 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+es:
   devise:
     mailer: 
       world_council: 
@@ -91,3 +91,7 @@ en:
 
           Atentamente,
           Secretariado Mundial de CGLU
+  uclg:
+    video_modal:
+      close_window: Cerrar
+      show_video: Ver video de presentación

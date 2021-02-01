@@ -1,0 +1,38 @@
+<div class="watch-video text-right">
+  <button class="button primary hollow" data-open="videoEmbed">
+    <%= t(".show_video") %>
+  </button>
+</div>
+
+<div class="reveal large" id="videoEmbed" data-reveal>
+  <div class="reveal__header">
+    <button class="close-button" data-close aria-label="<%= t(".close_window") %>" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="flex-video widescreen">
+    <iframe width="1280" height="720" src="<%= Rails.application.secrets.dig(:uclg, :video_url) %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+
+$(document).ready(function() {
+
+  var modal = $("#videoEmbed");
+  var src = $("#videoEmbed iframe").attr("src");
+
+  if (!localStorage.getItem('watchedVideo')) {
+    modal.foundation("open");
+  }
+
+  modal.on("closed.zf.reveal", function () {
+    localStorage.setItem('watchedVideo', true);
+    modal.find("iframe").attr("src", "");
+  });
+
+  modal.on("open.zf.reveal", function () {
+    modal.find("iframe").attr("src", src + "?autoplay=1");
+  });
+});
+</script>

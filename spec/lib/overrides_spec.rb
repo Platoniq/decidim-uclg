@@ -33,6 +33,12 @@ checksums = [
       "/app/controllers/decidim/assemblies/admin/participatory_space_private_users_controller.rb" => "af5800660a90e5391414254b73f475d8"
     }
   }, {
+    package: "decidim-conferences",
+    files: {
+      # views
+      "/app/views/decidim/conferences/conferences/show.html.erb" => "6f82c0756e52ccbdd3fc82e909f1520b"
+    }
+  }, {
     package: "decidim-debates",
     files: {
       # views
