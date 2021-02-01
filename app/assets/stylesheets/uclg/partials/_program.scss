@@ -1,0 +1,13 @@
+.program-background.a {
+  background-image: image-url("uclg/Water_Mark_C.png");
+  background-size: 50%;
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+
+.program-background.b {
+  background-image: image-url("uclg/Water_Mark.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right 55px;
+}

@@ -1,7 +1,11 @@
 <% if current_page? Rails.application.secrets.dig(:uclg, :page_with_background) %>
   <script>
   $(document).ready(function () {
-    $("main section:nth-child(3)").css("background-image", "url(/assets/uclg/Water_Mark.png)");
+    // Alternative 1
+    $("main section:nth-child(3)").addClass("program-background a");
+
+    // Alternative 2
+    // $("main section .wrapper .section .columns").addClass("program-background b");
   });
   </script>
 <% end %>
