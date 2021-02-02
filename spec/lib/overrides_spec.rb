@@ -10,14 +10,14 @@ checksums = [
     package: "decidim-core",
     files: {
       # layouts
-      "/app/views/layouts/decidim/_logo.html.erb" => "eaf30db076df1ceabd7647053df5cff6",
-      "/app/views/layouts/decidim/_mailer_logo.html.erb" => "0886c799767b3035a76d596a2c2e914c",
-      "/app/views/layouts/decidim/_mini_footer.html.erb" => "a542cf5dcbff8c33f5a5098a06f1ac2b",
+      "/app/views/layouts/decidim/_logo.html.erb" => "2713715db652c8107f1fe5f2c4d618b6",
+      "/app/views/layouts/decidim/_mailer_logo.html.erb" => "8abb593b786423070101ded4ea8140b4",
+      "/app/views/layouts/decidim/_mini_footer.html.erb" => "55a9ca723b65b8d9eadb714818a89bb3",
       "/app/views/layouts/decidim/mailer.html.erb" => "5bbe335c1dfd02f8448af287328a49dc",
-      "/app/assets/javascripts/decidim/floating_help.js.es6" => "d4e1add439a982df133a92e7293b41a8",
+      "/app/assets/javascripts/decidim/floating_help.js.es6" => "b25ba694db0fd880442b4310d9ece55c",
       # classes
-      "/app/commands/decidim/invite_user.rb" => "30b3d50ffe162180f2a0ba30a76db745",
-      "/app/commands/decidim/invite_user_again.rb" => "a32e2f24d653c81aebc77af128f477d1"
+      "/app/commands/decidim/invite_user.rb" => "30b3d50ffe162180f2a0ba30a76db745", # TODO: review
+      "/app/commands/decidim/invite_user_again.rb" => "a32e2f24d653c81aebc77af128f477d1" # TODO: review
     }
   }, {
     package: "decidim-admin",
@@ -36,14 +36,14 @@ checksums = [
     package: "decidim-conferences",
     files: {
       # views
-      "/app/views/decidim/conferences/conferences/show.html.erb" => "6f82c0756e52ccbdd3fc82e909f1520b"
+      "/app/views/decidim/conferences/conferences/show.html.erb" => "6f82c0756e52ccbdd3fc82e909f1520b" # TODO: review
     }
   }, {
     package: "decidim-debates",
     files: {
       # views
-      "/app/views/decidim/debates/debates/index.html.erb" => "00f61a3f8757ebe89f922378a92c556c",
-      "/app/presenters/decidim/debates/official_author_presenter.rb" => "06c779f89a3779c05fdb68a2b9bf56d4"
+      "/app/views/decidim/debates/debates/index.html.erb" => "00f61a3f8757ebe89f922378a92c556c", # TODO: review
+      "/app/presenters/decidim/debates/official_author_presenter.rb" => "f47ad586da31ff30ad853e170c3b773f"
       # classes
     }
   }
