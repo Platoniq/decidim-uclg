@@ -22,7 +22,7 @@ describe "The conference program page", type: :system, perform_enqueued: true do
 
     describe "the background" do
       it "has an image" do
-        element = page.find("main section:nth-child(3)")
+        element = page.find("main .wrapper")
         expect(element.style("background-image")["background-image"]).to match(conference_settings[:program_page_background])
       end
     end
@@ -43,7 +43,7 @@ describe "The conference program page", type: :system, perform_enqueued: true do
 
     describe "the background" do
       it "has no image" do
-        element = page.find("main section:nth-child(3)")
+        element = page.find("main .wrapper")
         expect(element.style("background-image")).to eq("background-image" => "none")
       end
     end

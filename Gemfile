@@ -4,21 +4,23 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "0.21-stable" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim.git", branch: "release/0.23-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
-gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer"
+gem "decidim-decidim_awesome", "~> 0.6.2"
+gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer", branch: "temp/0.23"
 
 gem "bootsnap", "~> 1.4"
 gem "health_check"
-gem "sentry-raven"
+gem "sentry-rails"
+gem "sentry-ruby"
 gem "sidekiq", "~> 6.0"
 gem "sidekiq-cron"
 
-gem "puma", "~> 4.3"
+gem "puma", ">= 4.3.5"
 gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 1.9"
