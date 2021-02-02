@@ -1,11 +1,15 @@
-<% if current_page? Rails.application.secrets.dig(:uclg, :page_with_background) %>
+<% current_conference = Rails.application.secrets.dig(:uclg, :conferences).find { |conference| conference[:slug] == current_participatory_space.slug } %>
+
+<% if current_conference %>
   <script>
   $(document).ready(function () {
     // Alternative 1
     $("main section:nth-child(3)").addClass("program-background a");
+    $("main section:nth-child(3)").css("background-image", "url(/assets/<%= current_conference[:program_page_background] %>)");
 
     // Alternative 2
     // $("main section .wrapper .section .columns").addClass("program-background b");
+    // $("main section .wrapper .section .columns").css("background-image", "url(/assets/<%= current_conference[:program_page_background] %>)");
   });
   </script>
 <% end %>
