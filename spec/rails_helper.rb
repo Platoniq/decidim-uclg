@@ -14,6 +14,7 @@ Decidim::Dev.dummy_app_path = File.expand_path(File.join(__dir__, ".."))
 
 require "decidim/dev/test/base_spec_helper"
 require "decidim/conferences/test/factories"
+require "decidim/meetings/test/factories"
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
