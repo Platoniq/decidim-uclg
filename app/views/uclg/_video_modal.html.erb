@@ -18,12 +18,16 @@
 <script>
 
 $(document).ready(function() {
-
   var modal = $("#videoEmbed");
   var src = $("#videoEmbed iframe").attr("src");
 
-  if (!localStorage.getItem('watchedVideo')) {
+  function playVideo() {
+    modal.find("iframe").attr("src", src + "?autoplay=1");
     modal.foundation("open");
+  }
+
+  if (!localStorage.getItem('watchedVideo')) {
+    playVideo();
   }
 
   modal.on("closed.zf.reveal", function () {
