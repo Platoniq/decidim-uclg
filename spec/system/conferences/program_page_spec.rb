@@ -14,7 +14,7 @@ describe "The conference program page", type: :system, perform_enqueued: true do
 
   let!(:meeting) { create(:meeting, component: component) }
 
-  context "when visiting the defined path" do
+  context "when visiting the defined conference" do
     before do
       switch_to_host(organization.host)
       visit decidim_conferences.conference_conference_program_path(conference, component)
