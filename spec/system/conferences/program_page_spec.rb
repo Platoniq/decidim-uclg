@@ -26,6 +26,13 @@ describe "The conference program page", type: :system, perform_enqueued: true do
         expect(element.style("background-image")["background-image"]).to match(conference_settings[:program_page_background])
       end
     end
+
+    describe "the soundcloud widget" do
+      it "is rendered" do
+        expect(page).to have_selector("#soundcloudEmbed")
+        expect(page.find("#soundcloudEmbed")[:src]).to eq(conference_settings[:soundcloud_url])
+      end
+    end
   end
 
   context "when visiting another conference" do
@@ -45,6 +52,12 @@ describe "The conference program page", type: :system, perform_enqueued: true do
       it "has no image" do
         element = page.find("main section:nth-child(3)")
         expect(element.style("background-image")).to eq("background-image" => "none")
+      end
+    end
+
+    describe "the soundcloud widget" do
+      it "is not rendered" do
+        expect(page).to have_no_selector("#soundcloudEmbed")
       end
     end
   end
