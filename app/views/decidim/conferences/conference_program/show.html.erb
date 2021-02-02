@@ -1,3 +1,19 @@
+<% current_conference = Rails.application.secrets.dig(:uclg, :conferences).find { |conference| conference[:slug] == current_participatory_space.slug } %>
+
+<% if current_conference %>
+  <script>
+  $(document).ready(function () {
+    // Alternative 1
+    $("main section:nth-child(3)").addClass("program-background a");
+    $("main section:nth-child(3)").css("background-image", "url(/assets/<%= current_conference[:program_page_background] %>)");
+
+    // Alternative 2
+    // $("main section .wrapper .section .columns").addClass("program-background b");
+    // $("main section .wrapper .section .columns").css("background-image", "url(/assets/<%= current_conference[:program_page_background] %>)");
+  });
+  </script>
+<% end %>
+
 <%
 if respond_to?(:meeting_component) && meeting_component
   edit_link(
@@ -11,7 +27,7 @@ end
 %>
 <% add_decidim_meta_tags(title: t("conference_program.index.title", scope: "decidim")) %>
 <div class="section row">
-  <div class="columns mediumlarge-10">
+  <div class="columns mediumlarge-12">
     <h1 class="section-heading"><%= t(".program") %></h1>
     <div class="conference-programme">
       <div class="row collapse programme-selector">
