@@ -1,6 +1,6 @@
 <% current_conference = Rails.application.secrets.dig(:uclg, :conferences).find { |conference| conference[:slug] == current_participatory_space.slug } %>
 
-<% if current_conference %>
+<% if current_conference && current_conference[:program_page_background] %>
   <script>
   $(document).ready(function () {
     // Alternative 1
@@ -68,3 +68,9 @@ end
     </div>
   </div>
 </div>
+
+<% if current_conference && current_conference[:soundcloud_url]  %>
+  <div class="section row">
+    <%= render partial: "uclg/soundcloud_embed", locals: { src: current_conference[:soundcloud_url] } %>
+  </div>
+<% end %>
