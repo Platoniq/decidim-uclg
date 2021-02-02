@@ -1,11 +1,11 @@
 <% current_conference = Rails.application.secrets.dig(:uclg, :conferences).find { |conference| conference[:slug] == current_participatory_space.slug } %>
 
-<% if current_conference %>
+<% if current_conference && current_conference[:program_page_background] %>
   <script>
   $(document).ready(function () {
     // Alternative 1
-    $("main section:nth-child(3)").addClass("program-background a");
-    $("main section:nth-child(3)").css("background-image", "url(/assets/<%= current_conference[:program_page_background] %>)");
+    $("main .wrapper").addClass("program-background a");
+    $("main .wrapper").css("background-image", "url(/assets/<%= current_conference[:program_page_background] %>)");
 
     // Alternative 2
     // $("main section .wrapper .section .columns").addClass("program-background b");
@@ -28,7 +28,7 @@ end
 <% add_decidim_meta_tags(title: t("conference_program.index.title", scope: "decidim")) %>
 <div class="section row">
   <div class="columns mediumlarge-12">
-    <h1 class="section-heading"><%= t(".program") %></h1>
+    <h3 class="section-heading"><%= t(".program") %></h3>
     <div class="conference-programme">
       <div class="row collapse programme-selector">
         <div class="column medium-2">
@@ -44,12 +44,12 @@ end
               data-tabs>
               <% meeting_days.each_with_index do |day, i| %>
                 <li class="tabs-title <%= "is-active" if i == 0 %>">
-                  <!-- Wrap button in an anchor to make foundation tabs work -->
-                  <a href="#conference-day-tab-<%= i %>">
-                    <button class="button button--nomargin button--sc secondary light">
+                  <!-- Wrap the anchor inside a div to keep correct button styling -->
+                  <div>
+                    <a href="#conference-day-tab-<%= i %>" class="button button--nomargin button--sc hollow">
                       <%= l day, format: :decidim_with_day_and_month_name %>
-                    </button>
-                  </a>
+                    </a>
+                  </div>
                 </li>
               <% end %>
             </ul>
@@ -68,3 +68,9 @@ end
     </div>
   </div>
 </div>
+
+<% if current_conference && current_conference[:soundcloud_url]  %>
+  <div class="section row">
+    <%= render partial: "uclg/soundcloud_embed", locals: { src: current_conference[:soundcloud_url] } %>
+  </div>
+<% end %>
