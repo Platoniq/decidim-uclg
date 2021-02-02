@@ -4,7 +4,9 @@ require "rails_helper"
 
 describe "The conference information page", type: :system, perform_enqueued: true do
   let(:organization) { create :organization }
-  let!(:conference) { create :conference, organization: organization }
+  let(:slug) { "test-conference" }
+  let!(:conference) { create :conference, organization: organization, slug: slug }
+  let(:conference_settings) { Rails.application.secrets.dig(:uclg, :conferences).find { |conference| conference[:slug] == slug } }
 
   before do
     switch_to_host(organization.host)
@@ -14,6 +16,7 @@ describe "The conference information page", type: :system, perform_enqueued: tru
   describe "the video modal" do
     it "is rendered" do
       expect(page).to have_selector("#videoEmbed")
+      expect(page.find("#videoEmbed iframe")[:src]).to eq(conference_settings[:video_url])
     end
 
     it "can be closed" do
