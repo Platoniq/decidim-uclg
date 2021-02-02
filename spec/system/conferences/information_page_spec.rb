@@ -16,7 +16,7 @@ describe "The conference information page", type: :system, perform_enqueued: tru
   describe "the video modal" do
     it "is rendered" do
       expect(page).to have_selector("#videoEmbed")
-      expect(page.find("#videoEmbed iframe")[:src]).to eq(conference_settings[:video_url])
+      expect(page.find("#videoEmbed iframe")[:src]).to match(conference_settings[:video_url])
     end
 
     it "can be closed" do
