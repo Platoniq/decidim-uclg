@@ -4,9 +4,12 @@ require "rails_helper"
 
 describe "The conference program page", type: :system, perform_enqueued: true do
   let(:organization) { create :organization }
-  let!(:conference) { create :conference, slug: "test", organization: organization }
+  let(:slug) { "test-conference" }
+  let!(:conference) { create :conference, slug: slug, organization: organization }
+  let(:conference_settings) { Rails.application.secrets.dig(:uclg, :conferences).find { |conference| conference[:slug] == slug } }
+
   let!(:component) do
-    create(:component, manifest_name: :meetings, participatory_space: conference, id: 999)
+    create(:component, manifest_name: :meetings, participatory_space: conference)
   end
 
   let!(:meeting) { create(:meeting, component: component) }
@@ -20,7 +23,7 @@ describe "The conference program page", type: :system, perform_enqueued: true do
     describe "the background" do
       it "has an image" do
         element = page.find("main section:nth-child(3)")
-        expect(element.style("background-image")).not_to eq("background-image" => "none")
+        expect(element.style("background-image")["background-image"]).to match(conference_settings[:program_page_background])
       end
     end
   end
