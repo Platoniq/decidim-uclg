@@ -4,8 +4,8 @@
   <script>
   $(document).ready(function () {
     // Alternative 1
-    $("main section:nth-child(3)").addClass("program-background a");
-    $("main section:nth-child(3)").css("background-image", "url(/assets/<%= current_conference[:program_page_background] %>)");
+    $("main .wrapper").addClass("program-background a");
+    $("main .wrapper").css("background-image", "url(/assets/<%= current_conference[:program_page_background] %>)");
 
     // Alternative 2
     // $("main section .wrapper .section .columns").addClass("program-background b");
