@@ -19,7 +19,7 @@ edit_link(
 <%= participatory_space_floating_help %>
 
 <div class="row">
-  <% if current_conference %>
+  <% if current_conference[:video_url] %>
     <div class="columns">
       <%= render partial: "uclg/video_modal", locals: { src: current_conference[:video_url] } %>
     </div>
