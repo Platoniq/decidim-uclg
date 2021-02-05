@@ -13,3 +13,14 @@
   background-repeat: no-repeat;
   background-position: right 55px;
 }
+
+.conference-programme,
+.conference-information {
+  font-size: 115%;
+
+  .programme-extra,
+  a,
+  p {
+    font-size: 115%;
+  }
+}
