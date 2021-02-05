@@ -94,7 +94,7 @@ en:
   uclg:
     soundcloud:
       play: Go to playlist
-      play_info: We have created a playlist that you can listen to while browsing the program. Go to the bottom of the page or press the button below to find the attached playlist. Enjoy! 
+      play_info: We have created a playlist that you can listen to while browsing the program. Go to the bottom of the page or press the button below to find the playlist. Enjoy! 
     video_modal:
       close_window: Close
       show_video: View presentation video
