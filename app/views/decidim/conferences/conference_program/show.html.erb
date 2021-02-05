@@ -28,6 +28,16 @@ end
 <% add_decidim_meta_tags(title: t("conference_program.index.title", scope: "decidim")) %>
 <div class="section row">
   <div class="columns mediumlarge-12">
+    <div class="callout primary">
+      <p>
+        <%= t("uclg.soundcloud.play_info") %>
+      </p>
+      <div class="soundcloud text-center">
+        <%= link_to t("uclg.soundcloud.play"), "#soundcloudEmbed", class: "button primary hollow" %>
+      </div>
+    </div>
+  </div>
+  <div class="columns mediumlarge-12">
     <h3 class="section-heading"><%= t(".program") %></h3>
     <div class="conference-programme">
       <div class="row collapse programme-selector">

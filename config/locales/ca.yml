@@ -92,6 +92,9 @@ ca:
           Atentamente,
           Secretariado Mundial de CGLU
   uclg:
+    soundcloud:
+      play: Veure llista
+      play_info: Hem creat una llista de reproducció per què escoltis mentres mires el programa. Ves al final d'aquesta pàgina o prem el botó de baix per veure la llista. Gaudeix!
     video_modal:
       close_window: Tanca
       show_video: Veure vídeo de presentació
