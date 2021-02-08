@@ -1,15 +1,10 @@
 <% current_conference = Rails.application.secrets.dig(:uclg, :conferences).find { |conference| conference[:slug] == current_participatory_space.slug } %>
 
-<% if current_conference && current_conference[:program_page_background] %>
+<% if current_conference && current_conference[:page_background] %>
   <script>
   $(document).ready(function () {
-    // Alternative 1
     $("main .wrapper").addClass("program-background a");
-    $("main .wrapper").css("background-image", "url(<%= asset_path current_conference[:program_page_background] %>)");
-
-    // Alternative 2
-    // $("main section .wrapper .section .columns").addClass("program-background b");
-    // $("main section .wrapper .section .columns").css("background-image", "url(<%= current_conference[:program_page_background] %>)");
+    $("main .wrapper").css("background-image", "url(<%= asset_path current_conference[:page_background] %>)");
   });
   </script>
 <% end %>
@@ -34,7 +29,7 @@ end
           <%= t("uclg.soundcloud.play_info") %>
         </p>
         <div class="soundcloud text-center">
-          <%= link_to t("uclg.soundcloud.play"), "#soundcloudEmbed", class: "button primary hollow" %>
+          <%= link_to t("uclg.soundcloud.play"), "#soundcloudEmbed", class: "button primary" %>
         </div>
       </div>
     </div>
