@@ -92,6 +92,9 @@ fr:
           Atentamente,
           Secretariado Mundial de CGLU
   uclg:
+    soundcloud:
+      play: Accéder à la playlist
+      play_info: Nous avons créé une playlist que vous pouvez écouter tout en parcourant le programme. Allez en bas de la page ou appuyez sur le bouton ci-dessous pour trouver la playlist jointe. Prendre plaisir! 
     video_modal:
       close_window: Fermer
       show_video: Voir la vidéo de présentation

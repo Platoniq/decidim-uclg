@@ -14,10 +14,13 @@
   background-position: right 55px;
 }
 
-.conference-programme {
+.conference-programme,
+.conference-information {
   font-size: 115%;
 
-  .programme-extra {
+  .programme-extra,
+  a,
+  p {
     font-size: 115%;
   }
 }

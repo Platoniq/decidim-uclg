@@ -1,5 +1,14 @@
 <% current_conference = Rails.application.secrets.dig(:uclg, :conferences).find { |conference| conference[:slug] == current_participatory_space.slug } %>
 
+<% if current_conference && current_conference[:page_background] %>
+  <script>
+  $(document).ready(function () {
+    $("main .wrapper").addClass("program-background a");
+    $("main .wrapper").css("background-image", "url(<%= asset_path current_conference[:page_background] %>)");
+  });
+  </script>
+<% end %>
+
 <% add_decidim_meta_tags({
   image_url: current_participatory_space.hero_image.url,
   description: translated_attribute(current_participatory_space.short_description),
@@ -18,7 +27,7 @@ edit_link(
 
 <%= participatory_space_floating_help %>
 
-<div class="row">
+<div class="row conference-information">
   <% if current_conference && current_conference[:video_url] %>
     <div class="columns">
       <%= render partial: "uclg/video_modal", locals: { src: current_conference[:video_url] } %>
