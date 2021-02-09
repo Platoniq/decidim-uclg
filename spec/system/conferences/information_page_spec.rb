@@ -11,6 +11,7 @@ describe "The conference information page", type: :system, perform_enqueued: tru
   let!(:conference_2) { create :conference, organization: organization }
 
   let(:iframe_src) { page.find("#videoEmbed iframe")[:src] }
+  let(:hidden_iframe_src) { page.find("#videoEmbed iframe", visible: false)[:src] }
 
   context "when visiting the defined conference" do
     before do
@@ -56,7 +57,7 @@ describe "The conference information page", type: :system, perform_enqueued: tru
 
         it "does not open again" do
           expect(page).not_to have_selector("#videoEmbed")
-          expect(iframe_src).not_to match("autoplay")
+          expect(hidden_iframe_src).not_to match("autoplay")
         end
       end
     end
