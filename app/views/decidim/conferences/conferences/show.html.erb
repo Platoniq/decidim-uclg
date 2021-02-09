@@ -30,7 +30,7 @@ edit_link(
 <div class="row conference-information">
   <% if current_conference && current_conference[:video_url] %>
     <div class="columns">
-      <%= render partial: "uclg/video_modal", locals: { src: current_conference[:video_url] } %>
+      <%= render partial: "uclg/video_modal", locals: { src: translated_attribute(current_conference[:video_url]) } %>
     </div>
   <% end %>
   <div class="columns mediumlarge-12">
