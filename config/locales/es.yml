@@ -94,7 +94,8 @@ es:
   uclg:
     soundcloud:
       play: Ver lista
-      play_info: Hemos creado una lista de reproducción para que escuches mientras miras el programa. Ve al final de esta página o aprieta el botón de abajo para ver la lista. ¡Disfruta!
+      play_info: 
+Con tu ayuda, hemos reunido canciones de toda la Organización Mundial para crear otra banda sonora notaria para el Retiro Anual. Por favor, escuchadla pulsando el botón de reproducción en la parte inferior de vuestras pantallas. ¡Esperamos que lo disfruten!
     video_modal:
       close_window: Cerrar
       show_video: Ver video de presentación
