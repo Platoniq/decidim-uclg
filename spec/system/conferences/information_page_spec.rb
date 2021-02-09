@@ -10,6 +10,8 @@ describe "The conference information page", type: :system, perform_enqueued: tru
 
   let!(:conference_2) { create :conference, organization: organization }
 
+  let(:iframe_src) { page.find("#videoEmbed iframe")[:src] }
+
   context "when visiting the defined conference" do
     before do
       switch_to_host(organization.host)
@@ -18,14 +20,28 @@ describe "The conference information page", type: :system, perform_enqueued: tru
 
     describe "the video modal" do
       it "is rendered" do
-        expect(page).to have_selector("#videoEmbed")
-        expect(page.find("#videoEmbed iframe")[:src]).to match(conference_settings[:video_url])
+        expect(iframe_src).to match(conference_settings[:video_url][:en])
       end
 
       it "can be closed" do
         within "#videoEmbed" do
           page.find(".close-button").click
           expect(page).not_to have_selector("#videoEmbed")
+        end
+      end
+
+      context "when changing language" do
+        [:es, :fr].each do |locale|
+          it "renders video in '#{locale}'" do
+            within "#videoEmbed" do
+              page.find(".close-button").click
+            end
+            within_language_menu do
+              page.find("li[lang='#{locale}'] a").click
+            end
+            page.find(".watch-video button").click
+            expect(iframe_src).to match(conference_settings[:video_url][locale])
+          end
         end
       end
 
@@ -40,6 +56,7 @@ describe "The conference information page", type: :system, perform_enqueued: tru
 
         it "does not open again" do
           expect(page).not_to have_selector("#videoEmbed")
+          expect(iframe_src).not_to match("autoplay")
         end
       end
     end
