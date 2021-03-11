@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_02_140835) do
+ActiveRecord::Schema.define(version: 2021_03_11_154433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -819,6 +819,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_140835) do
     t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "salt"
     t.index ["questionnaire_for_type", "questionnaire_for_id"], name: "index_decidim_forms_questionnaires_questionnaire_for"
   end
 
@@ -943,6 +944,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_140835) do
     t.string "decidim_author_type"
     t.integer "decidim_user_group_id"
     t.integer "comments_count", default: 0, null: false
+    t.string "salt"
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_meetings_meetings_on_author"
     t.index ["decidim_author_id"], name: "index_decidim_meetings_meetings_on_decidim_author_id"
     t.index ["decidim_component_id"], name: "index_decidim_meetings_meetings_on_decidim_component_id"
@@ -1639,6 +1641,14 @@ ActiveRecord::Schema.define(version: 2021_02_02_140835) do
     t.index ["decidim_organization_id"], name: "index_verifications_csv_census_to_organization"
   end
 
+  create_table "decidim_verifications_csv_email_csv_email_data", force: :cascade do |t|
+    t.bigint "decidim_organization_id"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_organization_id"], name: "index_verifications_csv_email_to_organization"
+  end
+
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer "resource_owner_id", null: false
     t.bigint "application_id", null: false
@@ -1732,6 +1742,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_140835) do
   add_foreign_key "decidim_term_customizer_translations", "decidim_term_customizer_translation_sets", column: "translation_set_id"
   add_foreign_key "decidim_users", "decidim_organizations"
   add_foreign_key "decidim_verifications_csv_data", "decidim_organizations"
+  add_foreign_key "decidim_verifications_csv_email_csv_email_data", "decidim_organizations"
   add_foreign_key "oauth_access_grants", "decidim_users", column: "resource_owner_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "decidim_users", column: "resource_owner_id"
