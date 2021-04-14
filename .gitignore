@@ -39,3 +39,4 @@ public/uploads
 .rbenv-vars
 .rspec-failures
 decidim_dummy_app
+.vscode
