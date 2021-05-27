@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Decidim.configure do |config|
-  config.application_name = "Decidim UCLG"
-  config.mailer_sender = "info@uclg.org"
+  config.application_name = "Participate OIDP"
+  config.mailer_sender = "info@oidp.net"
 
   # Change these lines to set your preferred locales
   config.default_locale = :en
