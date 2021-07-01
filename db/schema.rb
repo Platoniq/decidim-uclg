@@ -1641,14 +1641,6 @@ ActiveRecord::Schema.define(version: 2021_04_16_070437) do
     t.index ["decidim_organization_id"], name: "index_verifications_csv_census_to_organization"
   end
 
-  create_table "decidim_verifications_csv_email_csv_email_data", force: :cascade do |t|
-    t.bigint "decidim_organization_id"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["decidim_organization_id"], name: "index_verifications_csv_email_to_organization"
-  end
-
   create_table "oauth_access_grants", force: :cascade do |t|
     t.integer "resource_owner_id", null: false
     t.bigint "application_id", null: false
@@ -1742,7 +1734,6 @@ ActiveRecord::Schema.define(version: 2021_04_16_070437) do
   add_foreign_key "decidim_term_customizer_translations", "decidim_term_customizer_translation_sets", column: "translation_set_id"
   add_foreign_key "decidim_users", "decidim_organizations"
   add_foreign_key "decidim_verifications_csv_data", "decidim_organizations"
-  add_foreign_key "decidim_verifications_csv_email_csv_email_data", "decidim_organizations"
   add_foreign_key "oauth_access_grants", "decidim_users", column: "resource_owner_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "decidim_users", column: "resource_owner_id"
