@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+      - oidp
+      - staging
   pull_request:
 
 env:
