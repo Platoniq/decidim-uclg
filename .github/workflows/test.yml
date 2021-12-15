@@ -3,15 +3,15 @@ name: Test
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
 
 env:
-  RUBY_VERSION: 2.6.6
+  RUBY_VERSION: 2.7.4
   NODE_VERSION: 12.9.1
     
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -40,7 +40,6 @@ jobs:
 
       - name: Setup & create Database
         run: |
-          bundle exec rake decidim:generate_external_test_app
           bundle exec rails db:create db:schema:load
         env:
           RAILS_ENV: test
