@@ -79,7 +79,7 @@ module Decidim::Admin
 
           participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user: user)
 
-          expect(participatory_space_private_users.count).to eq 0
+          expect(participatory_space_private_users.count).to eq 1
         end
       end
     end
@@ -124,7 +124,7 @@ module Decidim::Admin
 
         _, _, _, _, _, queued_options = ActiveJob::Arguments.deserialize(jobs.last[:args])
 
-        expect(queued_options).not_to have_key(:invitation_instructions)
+        expect(queued_options).to be_nil
       end
     end
 
