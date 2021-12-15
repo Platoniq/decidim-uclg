@@ -5,7 +5,7 @@ require "decidim/core/test/factories"
 
 module Decidim::Admin
   describe CreateParticipatorySpacePrivateUser do
-    subject { described_class.new(form, current_user, privatable_to, via_csv) }
+    subject { described_class.new(form, current_user, privatable_to, via_csv: via_csv) }
 
     let(:via_csv) { false }
     let(:privatable_to) { create :assembly }
@@ -79,7 +79,7 @@ module Decidim::Admin
 
           participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user: user)
 
-          expect(participatory_space_private_users.count).to eq 1
+          expect(participatory_space_private_users.count).to eq 0
         end
       end
     end
@@ -91,11 +91,12 @@ module Decidim::Admin
           subject.call
 
           jobs = ActiveJob::Base.queue_adapter.enqueued_jobs
-          expect(jobs.count).to eq 1
+          expect(jobs.count).to eq 2
 
-          _, _, _, queued_user, _, queued_options = ActiveJob::Arguments.deserialize(jobs.first[:args])
+          _, _, _, queued_user, _, queued_options = ActiveJob::Arguments.deserialize(jobs.last[:args])
 
           expect(queued_user).to eq(user)
+          expect(queued_options).to have_key(:invitation_instructions)
           expect(queued_options).to eq(invitation_instructions: instructions)
         end
       end
@@ -119,7 +120,11 @@ module Decidim::Admin
         subject.call
 
         jobs = ActiveJob::Base.queue_adapter.enqueued_jobs
-        expect(jobs.count).to eq 0
+        expect(jobs.count).to eq 1
+
+        _, _, _, _, _, queued_options = ActiveJob::Arguments.deserialize(jobs.last[:args])
+
+        expect(queued_options).not_to have_key(:invitation_instructions)
       end
     end
 
