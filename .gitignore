@@ -40,7 +40,6 @@ public/uploads
 .rspec-failures
 decidim_dummy_app
 
-onfig/deploy
-config/deploy.rb
+config/deploy*
 config/application.yml
 Capfile
