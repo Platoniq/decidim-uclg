@@ -20,6 +20,9 @@ gem "sentry-ruby"
 gem "sidekiq", "~> 6.0"
 gem "sidekiq-cron"
 
+# bug in version 1.9
+gem "i18n", "~> 1.8.1"
+
 gem "puma", ">= 5.0.0"
 gem "uglifier", "~> 4.1"
 
@@ -39,8 +42,17 @@ group :development do
   gem "spring", "~> 2.0"
   gem "spring-watcher-listen", "~> 2.0"
   gem "web-console", "~> 3.5"
+
+  gem "capistrano", "~> 3.14"
+  gem "capistrano-bundler"
+  gem "capistrano-passenger"
+  gem "capistrano-rails"
+  gem "capistrano-rails-console"
+  gem "capistrano-rbenv"
+  gem "capistrano-sidekiq"
 end
 
 group :production do
+  gem "figaro", "~> 1.2"
   gem "fog-aws"
 end
