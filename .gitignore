@@ -39,3 +39,8 @@ public/uploads
 .rbenv-vars
 .rspec-failures
 decidim_dummy_app
+
+onfig/deploy
+config/deploy.rb
+config/application.yml
+Capfile
