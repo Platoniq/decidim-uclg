@@ -23,6 +23,8 @@
 
 /node_modules
 /yarn-error.log
+yarn-debug.log*
+.yarn-integrity
 
 /public/assets
 .byebug_history
@@ -32,14 +34,28 @@
 
 # Ignore public uploads
 public/uploads
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 .rbenv-vars
 .rspec-failures
+
+# Webpacker
+/public/packs
+/public/packs-test
+
 decidim_dummy_app
 
 config/deploy*
 config/application.yml
 Capfile
+
+/public/decidim-packs
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
