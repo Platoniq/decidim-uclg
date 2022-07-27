@@ -13,7 +13,7 @@ gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-decidim_awesome", "~> 0.8.1"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "release/0.26-stable"
 
-gem "bootsnap", "~> 1.4"
+gem "bootsnap", "~> 1.7"
 gem "health_check"
 gem "sentry-rails"
 gem "sentry-ruby"
@@ -41,7 +41,7 @@ group :development do
   gem "listen", "~> 3.1"
   gem "spring", "~> 2.0"
   gem "spring-watcher-listen", "~> 2.0"
-  gem "web-console", "~> 3.5"
+  gem "web-console"
 
   gem "capistrano", "~> 3.14"
   gem "capistrano-bundler"
