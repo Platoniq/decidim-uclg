@@ -37,7 +37,7 @@ checksums = [
     files: {
       # views
       "/app/views/decidim/conferences/conference_program/show.html.erb" => "e4d32ccc41adea7d9689b9021ef83694",
-      "/app/views/decidim/conferences/conferences/show.html.erb" => "746ca5f3192ba14095431691b766430a"
+      "/app/views/decidim/conferences/conferences/show.html.erb" => "2a39789fdca15b55f9a8eee8d6af9184"
     }
   }, {
     package: "decidim-debates",

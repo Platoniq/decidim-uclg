@@ -10,7 +10,7 @@
 <% end %>
 
 <% add_decidim_meta_tags({
-  image_url: current_participatory_space.hero_image.url,
+  image_url: current_participatory_space.attached_uploader(:hero_image).path,
   description: translated_attribute(current_participatory_space.short_description),
   url: conference_url(current_participatory_space),
   twitter_handler: current_organization.twitter_handler
@@ -94,8 +94,7 @@ edit_link(
     <%= cell("decidim/conferences/linked_participatory_spaces", current_participatory_space) %>
 
     <% if current_participatory_space.show_statistics? %>
-      <%= render partial: "statistics" %>
+      <%= cell("decidim/statistics", stats.highlighted) %>
     <% end %>
   </div>
 </div>
-<%= javascript_pack_tag "decidim_conferences" %>
