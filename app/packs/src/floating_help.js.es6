@@ -1,5 +1,3 @@
-//= require decidim
-
 $(function() {
   if (!window.localStorage) {
     return;
@@ -19,8 +17,7 @@ $(function() {
 
     if (!dismissedHelpers.includes(id)) {
       localStorage.setItem(
-        "dismissedHelpers",
-        [...dismissedHelpers, id].join(",")
+        "dismissedHelpers", [...dismissedHelpers, id].join(",")
       );
     }
   };

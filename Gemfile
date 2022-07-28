@@ -30,13 +30,13 @@ gem "faker", "~> 2.14"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
-
+  
+  gem "rubocop-faker"
   gem "decidim-dev", DECIDIM_VERSION
 end
 
 group :development do
   gem "letter_opener_web", "~> 1.3"
-  gem "rubocop-faker"
 
   gem "listen", "~> 3.1"
   gem "spring", "~> 2.0"

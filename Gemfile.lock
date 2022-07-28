@@ -834,7 +834,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootsnap (~> 1.4)
+  bootsnap (~> 1.7)
   byebug (~> 11.0)
   capistrano (~> 3.14)
   capistrano-bundler
@@ -865,10 +865,10 @@ DEPENDENCIES
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
   uglifier (~> 4.1)
-  web-console (~> 3.5)
+  web-console
 
 RUBY VERSION
-   ruby 2.7.5p203
+   ruby 2.7.6p219
 
 BUNDLED WITH
    2.1.4
