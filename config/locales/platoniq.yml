@@ -1,0 +1,24 @@
+ca:
+  platoniq:
+    footer:
+      logo: Fundació Platoniq - Creativitat i Democràcia
+      made_with_open_source: Web creada amb <a href="%{repository}" target="_blank">programari lliure</a>
+      text: Fet amb ♥ per
+en:
+  platoniq:
+    footer:
+      logo: Platoniq Foundation - Creativity and Democracy
+      made_with_open_source: Website made with <a href="%{repository}" target="_blank">free software</a>
+      text: Made with ♥ by
+es:
+  platoniq:
+    footer:
+      logo: Fundación Platoniq - Creatividad y Democracia
+      made_with_open_source: Web creada con <a href="%{repository}" target="_blank">software libre</a>
+      text: Hecho con ♥ por
+fr:
+  platoniq:
+    footer:
+      logo: Fondation Platoniq - Créativité et Démocratie
+      made_with_open_source: Site creé avec <a href="%{repository}" target="_blank">logiciel libre</a>
+      text: Fait avec ♥ par
