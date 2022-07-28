@@ -98,7 +98,7 @@ Rails.application.config.to_prepare do
     end
 
     def avatar_url
-      ActionController::Base.helpers.asset_path("media/images/logo-uclg.png")
+      ActionController::Base.helpers.asset_pack_path("media/images/logo-uclg.png")
     end
   end
 end

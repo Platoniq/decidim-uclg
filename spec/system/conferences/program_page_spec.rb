@@ -12,7 +12,7 @@ describe "The conference program page", type: :system, perform_enqueued: true do
     create(:component, manifest_name: :meetings, participatory_space: conference)
   end
 
-  let!(:meeting) { create(:meeting, component: component) }
+  let!(:meeting) { create(:meeting, :published, component: component) }
 
   context "when visiting the defined conference" do
     before do
@@ -45,7 +45,7 @@ describe "The conference program page", type: :system, perform_enqueued: true do
       create(:component, manifest_name: :meetings, participatory_space: conference_2)
     end
 
-    let!(:meeting_2) { create(:meeting, component: component_2) }
+    let!(:meeting_2) { create(:meeting, :published, component: component_2) }
 
     before do
       switch_to_host(organization.host)
