@@ -30,9 +30,9 @@ gem "faker", "~> 2.14"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
-  
-  gem "rubocop-faker"
+
   gem "decidim-dev", DECIDIM_VERSION
+  gem "rubocop-faker"
 end
 
 group :development do
