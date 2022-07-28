@@ -38,7 +38,7 @@ describe "The conference information page", type: :system, perform_enqueued: tru
               page.find(".close-button").click
             end
             within_language_menu do
-              page.find("li[lang='#{locale}'] a").click
+              page.find("li a[lang='#{locale}']").click
             end
             page.find(".watch-video button").click
             expect(iframe_src).to match(conference_settings[:video_url][locale])
