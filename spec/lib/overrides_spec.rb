@@ -43,7 +43,7 @@ checksums = [
     package: "decidim-debates",
     files: {
       # views
-      "/app/views/decidim/debates/debates/index.html.erb" => "13384916788b649eccf576714d2f12ef",
+      "/app/views/decidim/debates/debates/index.html.erb" => "4bcbeae81fd9fea19d5fff97d1a025c1",
       "/app/presenters/decidim/debates/official_author_presenter.rb" => "f47ad586da31ff30ad853e170c3b773f"
       # classes
     }
