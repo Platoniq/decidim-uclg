@@ -40,6 +40,12 @@ checksums = [
       "/app/views/decidim/conferences/conferences/show.html.erb" => "746ca5f3192ba14095431691b766430a"
     }
   }, {
+    package: "decidim-consultations",
+    files: {
+      # views
+      "/app/views/decidim/consultations/questions/_vote_button.html.erb" => "ac4b6314c4f11216764fa8977d4f829f"
+    }
+  }, {
     package: "decidim-debates",
     files: {
       # views
