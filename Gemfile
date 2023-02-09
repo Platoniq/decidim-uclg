@@ -11,7 +11,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-decidim_awesome", "~> 0.8"
-gem "decidim-direct_verifications", "~> 1.0"
+gem "decidim-direct_verifications", "~> 1.1"
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "release/0.25-stable"
 
 gem "bootsnap", "~> 1.4"

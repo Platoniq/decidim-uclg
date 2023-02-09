@@ -43,3 +43,11 @@ decidim_dummy_app
 config/deploy*
 config/application.yml
 Capfile
+
+/public/decidim-packs
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
