@@ -4,7 +4,7 @@
   <script>
     $(document).ready(function () {
       $("main .wrapper").addClass("program-background a");
-      $("main .wrapper").css("background-image", "url(<%= asset_path current_conference[:page_background] %>)");
+      $("main .wrapper").css("background-image", "url(<%= asset_pack_path current_conference[:page_background] %>)");
     });
   </script>
 <% end %>

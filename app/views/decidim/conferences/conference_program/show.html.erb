@@ -5,7 +5,7 @@
   <script>
   $(document).ready(function () {
     $("main .wrapper").addClass("program-background a");
-    $("main .wrapper").css("background-image", "url(<%= asset_path current_conference[:page_background] %>)");
+    $("main .wrapper").css("background-image", "url(<%= asset_pack_path current_conference[:page_background] %>)");
   });
   </script>
 <% end %>
@@ -26,8 +26,8 @@ end
   <%= cell("decidim/announcement", { announcement: translated_attribute(current_settings.announcement) } ) %>
 <% end %>
 
-
 <% add_decidim_meta_tags(title: t("conference_program.index.title", scope: "decidim")) %>
+
 <div class="section row">
   <% if current_conference && current_conference[:soundcloud_url] %>
     <div class="columns mediumlarge-12">
