@@ -12,7 +12,7 @@ module Decidim::Admin
     let(:organization) { privatable_to.organization }
     let!(:email) { "my_email@example.org" }
     let!(:name) { "Weird Guy" }
-    let!(:user) { create :user, email: "my_email@example.org", organization: organization }
+    let!(:user) { create :user, email: "my_email@example.org", organization: organization, invitation_token: "foo", invitation_accepted_at: nil }
     let!(:current_user) { create :user, email: "some_email@example.org", organization: organization }
     let(:form) do
       double(
