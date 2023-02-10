@@ -10,7 +10,7 @@ checksums = [
     package: "decidim-core",
     files: {
       # layouts
-      "/app/views/layouts/decidim/_logo.html.erb" => "66a4068d3c7cf10fdaf799806c2437fc",
+      "/app/views/layouts/decidim/_logo.html.erb" => "ab01dd1df9ce62cbd62f640a3b5018b2",
       "/app/views/layouts/decidim/_mailer_logo.html.erb" => "7fe70aeb7eb6241107d37b12bd8b5876",
       "/app/views/layouts/decidim/_mini_footer.html.erb" => "5a842f3e880f24f49789ee2f72d96f60",
       "/app/views/layouts/decidim/mailer.html.erb" => "0c7804de08649c8d3c55c117005e51c9",
@@ -37,13 +37,13 @@ checksums = [
     files: {
       # views
       "/app/views/decidim/conferences/conference_program/show.html.erb" => "e4d32ccc41adea7d9689b9021ef83694",
-      "/app/views/decidim/conferences/conferences/show.html.erb" => "2b158a066257f7a8d0b30cb6987dd45c"
+      "/app/views/decidim/conferences/conferences/show.html.erb" => "2a39789fdca15b55f9a8eee8d6af9184"
     }
   }, {
     package: "decidim-debates",
     files: {
       # views
-      "/app/views/decidim/debates/debates/index.html.erb" => "02ab9ec14f9c158f5e30a589e285f8d2",
+      "/app/views/decidim/debates/debates/index.html.erb" => "4bcbeae81fd9fea19d5fff97d1a025c1",
       "/app/presenters/decidim/debates/official_author_presenter.rb" => "f47ad586da31ff30ad853e170c3b773f"
       # classes
     }
