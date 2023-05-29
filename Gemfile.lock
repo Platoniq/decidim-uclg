@@ -75,6 +75,22 @@ GEM
     airbrussh (1.4.1)
       sshkit (>= 1.6.1, != 1.7.0)
     ast (2.4.2)
+    aws-eventstream (1.2.0)
+    aws-partitions (1.665.0)
+    aws-sdk-core (3.168.1)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.651.0)
+      aws-sigv4 (~> 1.5)
+      jmespath (~> 1, >= 1.6.1)
+    aws-sdk-kms (1.59.0)
+      aws-sdk-core (~> 3, >= 3.165.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.117.1)
+      aws-sdk-core (~> 3, >= 3.165.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.4)
+    aws-sigv4 (1.5.2)
+      aws-eventstream (~> 1, >= 1.0.2)
     axe-core-api (4.6.0)
       dumb_delegator
       virtus
@@ -166,7 +182,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.2.0)
-    connection_pool (2.2.5)
+    connection_pool (2.4.1)
     crack (0.4.5)
       rexml
     crass (1.0.6)
@@ -480,6 +496,7 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
+    jmespath (1.6.1)
     json (2.6.3)
     jwt (2.7.0)
     kaminari (1.2.2)
@@ -618,7 +635,7 @@ GEM
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.6.2)
-    rack (2.2.6.2)
+    rack (2.2.7)
     rack-attack (6.6.1)
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
@@ -758,10 +775,10 @@ GEM
     sentry-ruby (5.4.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
     seven_zip_ruby (1.3.0)
-    sidekiq (6.5.1)
-      connection_pool (>= 2.2.2)
+    sidekiq (6.5.9)
+      connection_pool (>= 2.2.5, < 3)
       rack (~> 2.0)
-      redis (>= 4.2.0)
+      redis (>= 4.5.0, < 5)
     sidekiq-cron (1.7.0)
       fugit (~> 1)
       sidekiq (>= 4.2.1)
@@ -859,6 +876,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk-s3
   bootsnap (~> 1.4)
   byebug (~> 11.0)
   capistrano (~> 3.14)
