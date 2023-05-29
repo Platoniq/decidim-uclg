@@ -19,7 +19,7 @@ class MergeMeetingsMinutesIntoMeetingsTable < ActiveRecord::Migration[6.0]
     add_column :decidim_meetings_meetings, :minutes_visible, :boolean
 
     Minutes.find_each do |minutes|
-      minutes.meeting.update!(
+      minutes.meeting&.update!(
         minutes_description: minutes.description,
         video_url: minutes.video_url,
         audio_url: minutes.audio_url,
