@@ -48,7 +48,7 @@ jobs:
 
       - name: Precompile assets
         run: |
-          yarn install
+          npm i
           bundle exec rake assets:precompile
         env:
           RAILS_ENV: test
