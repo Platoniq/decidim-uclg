@@ -14,7 +14,17 @@ checksums = [
       "/app/views/layouts/decidim/_mailer_logo.html.erb" => "f7978aeedda4a905b9775c5cf8c4acc7",
       "/app/views/layouts/decidim/_mini_footer.html.erb" => "5a842f3e880f24f49789ee2f72d96f60",
       "/app/views/layouts/decidim/mailer.html.erb" => "0c7804de08649c8d3c55c117005e51c9",
-      "/app/packs/src/decidim/floating_help.js" => "b25ba694db0fd880442b4310d9ece55c"
+      "/app/packs/src/decidim/floating_help.js" => "b25ba694db0fd880442b4310d9ece55c",
+      # classes
+      "/app/commands/decidim/invite_user.rb" => "02eefa14aec8b2cc4c94b9231415932f",
+      "/app/commands/decidim/invite_user_again.rb" => "d2cbe35da2285cd9c637a2434124842e"
+    }
+  }, {
+    package: "decidim-admin",
+    files: {
+      # classes
+      "/app/controllers/decidim/admin/concerns/has_private_users.rb" => "afc68907e570f396b80e6d208413a7ac",
+      "/app/commands/decidim/admin/create_participatory_space_private_user.rb" => "d0f6bbe7df48393c106019a9155f4ec2"
     }
   }, {
     package: "decidim-assemblies",
