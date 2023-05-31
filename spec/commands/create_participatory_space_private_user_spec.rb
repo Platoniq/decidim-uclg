@@ -21,7 +21,10 @@ module Decidim::Admin
         name: name
       )
     end
+
+    # rubocop:disable Lint/EmptyBlock
     let(:template) {}
+    # rubocop:enable Lint/EmptyBlock
 
     before do
       Rails.application.secrets.private_invites = {
@@ -145,7 +148,7 @@ module Decidim::Admin
       end
 
       it "returns the default" do
-        expect(subject.invitation_instructions).to eq(false)
+        expect(subject.invitation_instructions).to be(false)
       end
 
       it_behaves_like "creates private users"
@@ -196,7 +199,7 @@ module Decidim::Admin
       end
 
       it "returns the specific" do
-        expect(subject.invitation_instructions).to eq(false)
+        expect(subject.invitation_instructions).to be(false)
       end
 
       it_behaves_like "creates private users"

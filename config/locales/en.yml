@@ -91,6 +91,12 @@ en:
 
           Atentamente,
           Secretariado Mundial de CGLU
+  direct_verifications:
+    verification:
+      admin:
+        authorizations:
+          destroy:
+            success: The authorization was successfully deleted.
   uclg:
     soundcloud:
       play: Go to playlist

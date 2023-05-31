@@ -2,12 +2,14 @@
 <% current_settings = meeting_component.settings %>
 
 <% if current_conference && current_conference[:page_background] %>
-  <script>
-  $(document).ready(function () {
-    $("main .wrapper").addClass("program-background a");
-    $("main .wrapper").css("background-image", "url(<%= asset_pack_path current_conference[:page_background] %>)");
-  });
-  </script>
+  <% content_for(:js_content) do %>
+    <script>
+    $(document).ready(function () {
+      $("main .wrapper").addClass("program-background a");
+      $("main .wrapper").css("background-image", "url(<%= asset_pack_path current_conference[:page_background] %>)");
+    });
+    </script>
+  <% end %>
 <% end %>
 
 <%
