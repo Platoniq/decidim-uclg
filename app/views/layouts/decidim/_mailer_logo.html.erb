@@ -1,5 +1,5 @@
 <% if organization %>
-  <% if defined? (custom_url_for_mail_root) && custom_url_for_mail_root.present? %>
+  <% if defined?(custom_url_for_mail_root) && custom_url_for_mail_root.present? %>
     <% url = custom_url_for_mail_root %>
   <% else %>
     <% url = decidim.root_url(host: organization.host) %>
