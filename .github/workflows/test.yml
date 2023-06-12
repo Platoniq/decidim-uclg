@@ -7,19 +7,19 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 2.7.4
-  NODE_VERSION: 12.9.1
+  RUBY_VERSION: 2.7.5
+  NODE_VERSION: 16.9.1
     
 jobs:
   test:
-    runs-on: ubuntu-latest
+    name: Test
+    runs-on: ubuntu-20.04
     services:
       postgres:
         image: postgres:11
         ports:
           - 5432:5432
         env:
-          RAILS_ENV: test
           DATABASE_USERNAME: postgres
           DATABASE_PASSWORD: postgres
           POSTGRES_HOST_AUTH_METHOD: trust
@@ -47,9 +47,13 @@ jobs:
           DATABASE_PASSWORD: postgres
 
       - name: Precompile assets
-        run: bundle exec rake assets:precompile
+        run: |
+          npm i
+          bundle exec rake assets:precompile
         env:
           RAILS_ENV: test
+          DATABASE_USERNAME: postgres
+          DATABASE_PASSWORD: postgres
 
       - name: Run RSpec
         run: SIMPLECOV=1 CODECOV=1 bundle exec rspec

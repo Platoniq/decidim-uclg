@@ -3,17 +3,17 @@
   <div class="row">
     <div class="medium-4 large-4 column">
       <div class="decidim-logo">
-      <% if current_organization.official_img_footer? %>
-        <div class="decidim-logo">
-          <%= link_to current_organization.official_url do %>
-            <%= image_tag current_organization.official_img_footer.url.to_s , alt: current_organization.name %>
-          <% end %>
-        </div>
+        <% if current_organization.official_img_footer.attached? %>
+          <div class="decidim-logo">
+            <%= link_to current_organization.official_url do %>
+              <%= image_tag current_organization.attached_uploader(:official_img_footer).path, alt: current_organization.name %>
+            <% end %>
+          </div>
         <% else %>
           <a rel="uclg"
-            href="https://uclg.org/"
-            target="_blank" rel="noopener">
-            <%= image_tag asset_path("uclg/UCLG-CGLU-blanco.png") %>
+             href="https://uclg.org/"
+             target="_blank" rel="noopener">
+            <%= image_pack_tag "media/images/UCLG-CGLU-blanco.png" %>
           </a>
         <% end %>
       </div>
@@ -22,17 +22,16 @@
       <a rel="license" class="cc-badge"
          href="http://creativecommons.org/licenses/by-sa/4.0/"
          target="_blank" rel="noopener">
-         <%= image_tag("decidim/cc-badge.png", alt: "Creative Commons License") %>
+         <%= image_pack_tag "media/images/cc-badge.png", alt: "Creative Commons License" %>
       </a>
       <%= t("layouts.decidim.footer.made_with_open_source").html_safe %>
     </div>
     <div class="medium-4 large-4 column footer-logos">
-      
       <div class="decidim-logo">
         <a rel="decidim"
            href="https://decidim.org/"
            target="_blank">
-          <%= image_tag("decidim/decidim-logo.svg", alt: "Decidim Logo" ) %>
+          <%= image_pack_tag "media/images/decidim-logo.svg", alt: "Decidim Logo" %>
         </a>
       </div>
     </div>
