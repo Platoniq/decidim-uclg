@@ -7,9 +7,9 @@ describe "The conference information page", type: :system, perform_enqueued: tru
   let(:slug) { "test-conference" }
   let!(:conference) { create :conference, organization: organization, slug: slug }
   let(:conference_settings) { Rails.application.secrets.dig(:uclg, :conferences).find { |conference| conference[:slug] == slug } }
-
+  # rubocop:disable Naming/VariableNumber
   let!(:conference_2) { create :conference, organization: organization }
-
+  # rubocop:enable Naming/VariableNumber
   let(:iframe_src) { page.find("#videoEmbed iframe")[:src] }
   let(:hidden_iframe_src) { page.find("#videoEmbed iframe", visible: false)[:src] }
 
@@ -17,6 +17,7 @@ describe "The conference information page", type: :system, perform_enqueued: tru
     before do
       switch_to_host(organization.host)
       visit decidim_conferences.conference_path(conference.id)
+      page.execute_script("$('#dc-modal-accept').click()")
     end
 
     describe "the video modal" do
@@ -38,7 +39,7 @@ describe "The conference information page", type: :system, perform_enqueued: tru
               page.find(".close-button").click
             end
             within_language_menu do
-              page.find("li[lang='#{locale}'] a").click
+              page.find("li a[lang='#{locale}']").click
             end
             page.find(".watch-video button").click
             expect(iframe_src).to match(conference_settings[:video_url][locale])
@@ -49,6 +50,7 @@ describe "The conference information page", type: :system, perform_enqueued: tru
       context "when the page is loaded again" do
         before do
           visit decidim_conferences.conference_path(conference.id)
+          page.execute_script("$('#dc-modal-accept').click()")
           within "#videoEmbed" do
             page.find(".close-button").click
           end

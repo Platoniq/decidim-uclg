@@ -15,28 +15,30 @@
   </div>
 </div>
 
-<script>
+<% content_for(:js_content) do %>
+  <script>
 
-$(document).ready(function() {
-  var modal = $("#videoEmbed");
-  var src = $("#videoEmbed iframe").attr("src");
+  $(document).ready(function() {
+    var modal = $("#videoEmbed");
+    var src = $("#videoEmbed iframe").attr("src");
 
-  function playVideo() {
-    modal.find("iframe").attr("src", src + "?autoplay=1");
-    modal.foundation("open");
-  }
+    function playVideo() {
+      modal.find("iframe").attr("src", src + "?autoplay=1");
+      modal.foundation("open");
+    }
 
-  if (!localStorage.getItem('watchedVideo')) {
-    playVideo();
-  }
+    if (!localStorage.getItem('watchedVideo')) {
+      playVideo();
+    }
 
-  modal.on("closed.zf.reveal", function () {
-    localStorage.setItem('watchedVideo', true);
-    modal.find("iframe").attr("src", "");
+    modal.on("closed.zf.reveal", function () {
+      localStorage.setItem('watchedVideo', true);
+      modal.find("iframe").attr("src", "");
+    });
+
+    modal.on("open.zf.reveal", function () {
+      modal.find("iframe").attr("src", src + "?autoplay=1");
+    });
   });
-
-  modal.on("open.zf.reveal", function () {
-    modal.find("iframe").attr("src", src + "?autoplay=1");
-  });
-});
-</script>
+  </script>
+<% end %>

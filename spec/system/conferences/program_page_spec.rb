@@ -18,6 +18,7 @@ describe "The conference program page", type: :system, perform_enqueued: true do
     before do
       switch_to_host(organization.host)
       visit decidim_conferences.conference_conference_program_path(conference, component)
+      page.execute_script("$('#dc-modal-accept').click()")
     end
 
     describe "the background" do
@@ -40,16 +41,19 @@ describe "The conference program page", type: :system, perform_enqueued: true do
   end
 
   context "when visiting another conference" do
+    # rubocop:disable Naming/VariableNumber
     let!(:conference_2) { create :conference, organization: organization }
     let!(:component_2) do
       create(:component, manifest_name: :meetings, participatory_space: conference_2)
     end
 
     let!(:meeting_2) { create(:meeting, :published, component: component_2) }
+    # rubocop:enable Naming/VariableNumber
 
     before do
       switch_to_host(organization.host)
       visit decidim_conferences.conference_conference_program_path(conference_2, component_2)
+      page.execute_script("$('#dc-modal-accept').click()")
     end
 
     describe "the background" do
