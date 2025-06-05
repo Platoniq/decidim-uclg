@@ -1,5 +1,5 @@
 .program-background.a {
-  background-size: 50%;
+  background-size: 25%;
   background-position: top right;
   background-repeat: no-repeat;
 
@@ -12,15 +12,4 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right 55px;
-}
-
-.conference-programme,
-.conference-information {
-  font-size: 115%;
-
-  .programme-extra,
-  a,
-  p {
-    font-size: 115%;
-  }
 }

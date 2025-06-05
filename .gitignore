@@ -50,23 +50,13 @@ Capfile
 
 .stuff
 
-.rubocop*
-
-node_modules
 /public/decidim-packs
 /public/packs
 /public/packs-test
-/node_modules
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
-/public/packs
-/public/packs-test
-/node_modules
-/yarn-error.log
 yarn-debug.log*
 .yarn-integrity
 
+public/sw.js*
 
-public/sw.js
-public/sw.js.map
+tailwind.config.js
+

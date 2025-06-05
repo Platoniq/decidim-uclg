@@ -5,20 +5,20 @@ require "decidim/core/test/factories"
 
 module Decidim::Admin
   describe CreateParticipatorySpacePrivateUser do
-    subject { described_class.new(form, current_user, privatable_to, via_csv: via_csv) }
+    subject { described_class.new(form, current_user, privatable_to, via_csv:) }
 
     let(:via_csv) { false }
-    let(:privatable_to) { create :assembly }
+    let(:privatable_to) { create(:assembly) }
     let(:organization) { privatable_to.organization }
     let!(:email) { "my_email@example.org" }
     let!(:name) { "Weird Guy" }
-    let!(:user) { create :user, email: "my_email@example.org", organization: organization, invitation_token: "foo", invitation_accepted_at: nil }
-    let!(:current_user) { create :user, email: "some_email@example.org", organization: organization }
+    let!(:user) { create(:user, email: "my_email@example.org", organization:, invitation_token: "foo", invitation_accepted_at: nil) }
+    let!(:current_user) { create(:user, email: "some_email@example.org", organization:) }
     let(:form) do
       double(
         invalid?: false,
-        email: email,
-        name: name
+        email:,
+        name:
       )
     end
 
@@ -36,7 +36,7 @@ module Decidim::Admin
       it "creates the private user" do
         subject.call
 
-        participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user: user)
+        participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user:)
 
         expect(participatory_space_private_users.count).to eq 1
       end
@@ -80,7 +80,7 @@ module Decidim::Admin
         it "doesn't get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user: user)
+          participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user:)
 
           expect(participatory_space_private_users.count).to eq 1
         end

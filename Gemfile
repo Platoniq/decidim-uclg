@@ -4,15 +4,14 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.27-stable" }.freeze
+DECIDIM_VERSION = "~> 0.28.6"
 
 gem "decidim", DECIDIM_VERSION
-# gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
-gem "decidim-consultations", DECIDIM_VERSION
-gem "decidim-decidim_awesome", git: "https://github.com/decidim-ice/decidim-module-decidim_awesome", branch: "main"
-gem "decidim-direct_verifications", git: "https://github.com/Platoniq/decidim-verifications-direct_verifications", branch: "main"
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "master"
+
+gem "decidim-decidim_awesome", "~> 0.11.0"
+gem "decidim-direct_verifications", git: "https://github.com/Platoniq/decidim-verifications-direct_verifications", branch: "release/0.28-stable"
+gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", branch: "main"
 
 gem "bootsnap", "~> 1.4"
 gem "health_check"
@@ -27,10 +26,11 @@ gem "i18n", "~> 1.8.1"
 gem "puma", ">= 5.0.0"
 gem "uglifier", "~> 4.1"
 
-gem "faker", "~> 2.14"
+gem "faker"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
+  gem "mdl"
 
   gem "decidim-dev", DECIDIM_VERSION
 end

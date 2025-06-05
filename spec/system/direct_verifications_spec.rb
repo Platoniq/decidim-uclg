@@ -2,9 +2,9 @@
 
 require "rails_helper"
 
-describe "Admin creates direct verifications", type: :system do
+describe "Admin creates direct verifications" do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   let(:i18n_scope) { "decidim.direct_verifications.verification.admin.direct_verifications" }
 
@@ -16,10 +16,10 @@ describe "Admin creates direct verifications", type: :system do
   end
 
   around do |example|
-    original_processor = ::Decidim::DirectVerifications.input_parser
-    ::Decidim::DirectVerifications.input_parser = :metadata_parser
+    original_processor = Decidim::DirectVerifications.input_parser
+    Decidim::DirectVerifications.input_parser = :metadata_parser
     example.run
-    ::Decidim::DirectVerifications.input_parser = original_processor
+    Decidim::DirectVerifications.input_parser = original_processor
   end
 
   context "when registering users" do
@@ -29,7 +29,7 @@ describe "Admin creates direct verifications", type: :system do
         check "register"
         choose "authorize_in"
 
-        click_button "Send and process the list"
+        click_on "Send and process the list"
 
         expect(page).to have_content(I18n.t("#{i18n_scope}.create.missing_header"))
       end

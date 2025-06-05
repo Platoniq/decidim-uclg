@@ -2,47 +2,41 @@
 
 require "rails_helper"
 
-describe "The conference information page", type: :system, perform_enqueued: true do
-  let(:organization) { create :organization }
+describe "The conference information page", :perform_enqueued do
+  let(:organization) { create(:organization) }
   let(:slug) { "test-conference" }
-  let!(:conference) { create :conference, organization: organization, slug: slug }
+  let!(:conference) { create(:conference, organization:, slug:) }
   let(:conference_settings) { Rails.application.secrets.dig(:uclg, :conferences).find { |conference| conference[:slug] == slug } }
-  # rubocop:disable Naming/VariableNumber
-  let!(:conference_2) { create :conference, organization: organization }
-  # rubocop:enable Naming/VariableNumber
-  let(:iframe_src) { page.find("#videoEmbed iframe")[:src] }
-  let(:hidden_iframe_src) { page.find("#videoEmbed iframe", visible: false)[:src] }
+  let!(:other_conference) { create(:conference, organization:) }
 
   context "when visiting the defined conference" do
     before do
       switch_to_host(organization.host)
+      visit decidim.root_path
+      click_on "Cookie settings"
+      click_on "Accept all"
       visit decidim_conferences.conference_path(conference.id)
-      page.execute_script("$('#dc-modal-accept').click()")
     end
 
     describe "the video modal" do
       it "is rendered" do
-        expect(iframe_src).to match(conference_settings[:video_url][:en])
+        expect(page.find("#conference-video-modal iframe", visible: :all)[:src]).to match(conference_settings[:video_url][:en])
       end
 
       it "can be closed" do
-        within "#videoEmbed" do
-          page.find(".close-button").click
-          expect(page).not_to have_selector("#videoEmbed")
-        end
+        page.find("#conference-video-modal button[data-dialog-close='conference-video-modal']", visible: :all).click
+        expect(page).to have_css("#conference-video-modal", visible: :hidden)
       end
 
       context "when changing language" do
         [:es, :fr].each do |locale|
           it "renders video in '#{locale}'" do
-            within "#videoEmbed" do
-              page.find(".close-button").click
-            end
+            page.find("#conference-video-modal button[data-dialog-close='conference-video-modal']", visible: :all).click
             within_language_menu do
               page.find("li a[lang='#{locale}']").click
             end
-            page.find(".watch-video button").click
-            expect(iframe_src).to match(conference_settings[:video_url][locale])
+            click_on I18n.t("uclg.video_modal.show_video", locale:)
+            expect(page.find("#conference-video-modal iframe", visible: :all)[:src]).to match(conference_settings[:video_url][locale])
           end
         end
       end
@@ -50,16 +44,13 @@ describe "The conference information page", type: :system, perform_enqueued: tru
       context "when the page is loaded again" do
         before do
           visit decidim_conferences.conference_path(conference.id)
-          page.execute_script("$('#dc-modal-accept').click()")
-          within "#videoEmbed" do
-            page.find(".close-button").click
-          end
+          page.find("#conference-video-modal button[data-dialog-close='conference-video-modal']", visible: :all).click
           visit decidim_conferences.conference_path(conference.id)
         end
 
         it "does not open again" do
-          expect(page).not_to have_selector("#videoEmbed")
-          expect(hidden_iframe_src).not_to match("autoplay")
+          expect(page).to have_no_css("#conference-video-modal")
+          expect(page.find("#conference-video-modal iframe", visible: false)[:src]).not_to match("autoplay")
         end
       end
     end
@@ -68,12 +59,12 @@ describe "The conference information page", type: :system, perform_enqueued: tru
   context "when visiting another conference" do
     before do
       switch_to_host(organization.host)
-      visit decidim_conferences.conference_path(conference_2.id)
+      visit decidim_conferences.conference_path(other_conference.id)
     end
 
     describe "the video modal" do
       it "is not rendered" do
-        expect(page).to have_no_selector("#videoEmbed")
+        expect(page).to have_no_selector("#conference-video-modal")
       end
     end
   end
