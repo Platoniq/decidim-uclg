@@ -1,6 +1,7 @@
 # UCLG
 
-![Build](https://github.com/Platoniq/decidim-uclg/workflows/Build/badge.svg)
+[![Lint](https://github.com/Platoniq/decidim-uclg/actions/workflows/lint.yml/badge.svg)](https://github.com/Platoniq/decidim-uclg/actions/workflows/lint.yml)
+[![Test](https://github.com/Platoniq/decidim-uclg/actions/workflows/test.yml/badge.svg)](https://github.com/Platoniq/decidim-uclg/actions/workflows/test.yml)
 
 Free Open-Source participatory democracy, citizen participation and open government for cities and organizations
 
