@@ -5,3 +5,7 @@ metrics_job:
   class: "MetricsGenerationWorker"
   queue: metrics
 
+change_active_step_job:
+  cron: "*/15 * * * *"
+  class: "ChangeActiveStepWorker"
+  queue: default

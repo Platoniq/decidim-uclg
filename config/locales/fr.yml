@@ -30,6 +30,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
+  decidim:
+    verifications:
+      id_documents:
+        dni: DNI
+        nie: NIE
+        passport: Passeport
   devise:
     mailer: 
       world_council: 

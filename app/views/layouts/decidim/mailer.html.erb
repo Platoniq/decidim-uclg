@@ -25,17 +25,6 @@
                   <table class="row collapse">
                     <tr>
                       <th class="small-4 large-4 columns decidim-bar">
-                        <table>
-                          <tr>
-                            <th>
-                              <% if @organization.official_img_header.attached? %>
-                                <%= link_to @organization.official_url do %>
-                                  <%= image_tag @organization.attached_uploader(:official_img_header).path, alt: "", style: "max-height: 50px" %>
-                                <% end %>
-                              <% end %>
-                            </th>
-                          </tr>
-                        </table>
                       </th>
                       <th class="small-8 large-8 last columns decidim-bar">
                         <table>
@@ -83,7 +72,7 @@
                   <table class="row">
                     <tr>
                       <th class="expander"></th>
-                      <th class="first columns cityhall-bar" align="center">
+                      <th class="first columns cityhall-bar" align="left">
                         <% if @custom_url_for_mail_root.present? %>
                           <%= link_to @organization.name.html_safe, @custom_url_for_mail_root %>
                         <% else %>
@@ -95,7 +84,6 @@
                 </td>
               </tr>
             </table>
-
             <% if content_for?(:note) or content_for?(:unsubscribe) %>
               <table class="container">
                 <tr>
@@ -113,6 +101,22 @@
                 </tr>
               </table>
             <% end %>
+          </center>
+        </td>
+      </tr>
+      <tr>
+        <td class="float-center" align="center" valign="top">
+          <center>
+            <table class="container">
+              <tr>
+                <td height="10px" style="font-size:10px;line-height:10px;"> </td>
+              </tr>
+              <tr>
+                <th class="small-12 first columns footnote">
+                  <%= t("decidim.newsletter_mailer.newsletter.no_reply_notice") %>
+                </th>
+              </tr>
+            </table>
           </center>
         </td>
       </tr>
