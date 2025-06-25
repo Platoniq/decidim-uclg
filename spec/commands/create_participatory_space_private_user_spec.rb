@@ -5,7 +5,7 @@ require "decidim/core/test/factories"
 
 module Decidim::Admin
   describe CreateParticipatorySpacePrivateUser do
-    subject { described_class.new(form, current_user, privatable_to, via_csv:) }
+    subject { described_class.new(form, privatable_to, via_csv:) }
 
     let(:via_csv) { false }
     let(:privatable_to) { create(:assembly) }
@@ -18,7 +18,8 @@ module Decidim::Admin
       double(
         invalid?: false,
         email:,
-        name:
+        name:,
+        current_user:
       )
     end
 
@@ -96,7 +97,9 @@ module Decidim::Admin
           jobs = ActiveJob::Base.queue_adapter.enqueued_jobs
           expect(jobs.count).to eq 2
 
-          _, _, _, queued_user, _, queued_options = ActiveJob::Arguments.deserialize(jobs.last[:args])
+          queued_args = ActiveJob::Arguments.deserialize(jobs.last[:args]).last[:args]
+          queued_user = queued_args[0]
+          queued_options = queued_args[2]
 
           expect(queued_user).to eq(user)
           expect(queued_options).to have_key(:invitation_instructions)
