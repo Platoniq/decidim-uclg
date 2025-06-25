@@ -5,7 +5,7 @@
     <% url = decidim.root_url(host: organization.host) %>
   <% end %>
   <%= link_to url do %>
-    <span><%= organization.name %></span>
+    <span><%= organization_name(organization) %></span>
   <% end %>
 <% else %>
   <%= Decidim.application_name %>
