@@ -31,7 +31,8 @@ checksums = [
     package: "decidim-conferences",
     files: {
       "/app/views/decidim/conferences/conference_program/show.html.erb" => "e1f0729222b339db3d1fc4b6902ef01a",
-      "/app/views/decidim/conferences/conferences/show.html.erb" => "f473d522ddc4c5f3352f3fc55cffdd7d"
+      "/app/views/decidim/conferences/conferences/show.html.erb" => "f473d522ddc4c5f3352f3fc55cffdd7d",
+      "/app/views/decidim/conferences/conferences/_conference_hero.html.erb" => "da4e86d29cf4272356d4bed6130d641f"
     }
   }, {
     package: "decidim-debates",
