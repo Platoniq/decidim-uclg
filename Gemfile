@@ -4,14 +4,14 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "~> 0.29.4"
+DECIDIM_VERSION = "~> 0.30.0"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 
-gem "decidim-decidim_awesome", "~> 0.12.3"
+gem "decidim-decidim_awesome", "~> 0.13.0"
 gem "decidim-direct_verifications", git: "https://github.com/Platoniq/decidim-verifications-direct_verifications", branch: "main"
-gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer", branch: "master"
+gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer", branch: "main"
 
 gem "appsignal"
 gem "bootsnap", "~> 1.4"

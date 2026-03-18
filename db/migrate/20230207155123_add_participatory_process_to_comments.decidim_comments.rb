@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim_comments (originally 20210402124534)
 
+# This migration comes from decidim_comments (originally 20210402124534)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-18 16:04:22 UTC
 class AddParticipatoryProcessToComments < ActiveRecord::Migration[5.2]
   def change
     add_column :decidim_comments_comments, :decidim_participatory_space_type, :string
