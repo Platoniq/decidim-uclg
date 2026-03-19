@@ -19,7 +19,9 @@ module Decidim::Admin
         invalid?: false,
         email:,
         name:,
-        current_user:
+        current_user:,
+        role: nil,
+        published: true
       )
     end
 

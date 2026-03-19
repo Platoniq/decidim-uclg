@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "The conference information page", :perform_enqueued do
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, available_locales: %w(en es fr ca)) }
   let(:slug) { "test-conference" }
   let!(:conference) { create(:conference, organization:, slug:) }
   let(:conference_settings) { Rails.application.secrets.dig(:uclg, :conferences).find { |conference| conference[:slug] == slug } }
