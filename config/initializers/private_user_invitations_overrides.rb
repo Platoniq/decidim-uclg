@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 def current_private_invite_instructions(space)
-  default = Rails.application.secrets.dig(:private_invites, space.organization.host.to_sym, :default)
+  private_invites = JSON.parse(ENV.fetch("PRIVATE_INVITES", "{}")).deep_symbolize_keys
+
+  default = private_invites.dig(space.organization.host.to_sym, :default)
   default = "invite_private_user" if default.nil?
-  custom = Rails.application.secrets.dig(:private_invites, space.organization.host.to_sym, space.manifest.name, space.slug.to_sym)
+  custom = private_invites.dig(space.organization.host.to_sym, space.manifest.name, space.slug.to_sym)
 
   return default if custom.nil?
 

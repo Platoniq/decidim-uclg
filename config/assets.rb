@@ -2,6 +2,6 @@
 
 base_path = File.expand_path("..", __dir__)
 
-Decidim::Webpacker.register_entrypoints(
+Decidim::Shakapacker.register_entrypoints(
   uclg_email: "#{base_path}/app/packs/entrypoints/uclg_email.js"
 )

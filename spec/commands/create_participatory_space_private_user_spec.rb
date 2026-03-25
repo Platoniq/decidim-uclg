@@ -30,9 +30,10 @@ module Decidim::Admin
     # rubocop:enable Lint/EmptyBlock
 
     before do
-      Rails.application.secrets.private_invites = {
+      private_invites = {
         organization.host.to_sym => template
       }
+      ENV["PRIVATE_INVITES"] = private_invites.to_json
     end
 
     shared_examples "creates private users" do

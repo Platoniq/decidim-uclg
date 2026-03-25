@@ -1,5 +1,4 @@
-<% current_conference = Rails.application.secrets.dig(:uclg, :conferences).find { |conference| conference[:slug] == current_participatory_space.slug } %>
-
+<% current_conference = Decidim::Uclg::SPECIAL_CONFERENCES.find { |conference| conference[:slug] == current_participatory_space.slug } %>
 <% if current_conference && current_conference[:page_background] %>
   <% content_for(:js_content) do %>
     <script>
@@ -40,7 +39,7 @@ edit_link(
 
   <%= content_for :aside do %>
     <div class="conference__nav-container">
-      <button id="dropdown-trigger-conference" data-component="dropdown" data-target="dropdown-menu-conference" data-auto-close="true" data-scroll-to-menu="true">
+      <button id="dropdown-trigger-conference" data-controller="dropdown" data-target="dropdown-menu-conference" data-auto-close="true" data-scroll-to-menu="true">
         <span><%= t("decidim.searches.filters.jump_to") %></span>
         <%= icon "arrow-down-s-line" %>
         <%= icon "arrow-up-s-line" %>
