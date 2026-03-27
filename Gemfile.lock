@@ -11,7 +11,7 @@ GIT
 GIT
   remote: https://github.com/openpoke/decidim-module-term_customizer
   revision: 8cd8bafc273b34ff7dae7c0dcbf231062aa68466
-  branch: release/0.31-stable
+  branch: main
   specs:
     decidim-term_customizer (0.31)
       decidim-admin (~> 0.31.0)
