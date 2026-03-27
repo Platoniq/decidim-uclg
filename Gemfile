@@ -45,6 +45,7 @@ group :development do
 
   gem "capistrano", "~> 3.14"
   gem "capistrano-bundler"
+  gem "capistrano-nvm"
   gem "capistrano-passenger"
   gem "capistrano-rails"
   gem "capistrano-rails-console"
