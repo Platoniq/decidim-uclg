@@ -8,6 +8,7 @@ DECIDIM_VERSION = "~> 0.31.2"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
+gem "decidim-initiatives", DECIDIM_VERSION
 
 gem "decidim-decidim_awesome", "~> 0.14.0"
 gem "decidim-direct_verifications", git: "https://github.com/Platoniq/decidim-verifications-direct_verifications", branch: "main"
