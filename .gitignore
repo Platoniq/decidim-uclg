@@ -60,3 +60,4 @@ public/sw.js*
 
 tailwind.config.js
 
+/public/sw.js*
