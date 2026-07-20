@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/Platoniq/decidim-module-term_customizer
-  revision: 3da4973f52649534fa9cc2acaaa4d89176a19351
-  branch: master
-  specs:
-    decidim-term_customizer (0.29.0)
-      decidim-admin (~> 0.29.0)
-      decidim-core (~> 0.29.0)
-
-GIT
   remote: https://github.com/Platoniq/decidim-verifications-direct_verifications
   revision: 6e4106812d82f1f717ad848b04b6ea59569ebcb9
   branch: main
@@ -16,6 +7,15 @@ GIT
       decidim-admin (>= 0.29.0, < 0.30)
       decidim-core (>= 0.29.0, < 0.30)
       deface (~> 1.5)
+
+GIT
+  remote: https://github.com/openpoke/decidim-module-term_customizer.git
+  revision: 12d3c4f09e0a136e3d5533966c0d983edbb02564
+  branch: release/0.29-stable
+  specs:
+    decidim-term_customizer (0.29.1)
+      decidim-admin (~> 0.29.0)
+      decidim-core (~> 0.29.0)
 
 GEM
   remote: https://rubygems.org/
