@@ -15,6 +15,9 @@
   <% end %>
 <% end %>
 
+<% add_decidim_meta_tags(
+  title: t("conference_program.index.title", scope: "decidim"),
+  resource: meeting_component) %>
 <%
 if respond_to?(:meeting_component) && meeting_component
   edit_link(
@@ -30,8 +33,6 @@ end
 <% if translated_attribute(current_settings.announcement).present? %>
   <%= cell("decidim/announcement", { announcement: translated_attribute(current_settings.announcement) } ) %>
 <% end %>
-
-<% add_decidim_meta_tags(title: t("conference_program.index.title", scope: "decidim")) %>
 
 <%# NOTE: this page does not use a regular layout %>
 <main class="container">

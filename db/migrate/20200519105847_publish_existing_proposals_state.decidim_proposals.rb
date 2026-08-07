@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_proposals (originally 20200306123652)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-03-18 16:04:24 UTC
 class PublishExistingProposalsState < ActiveRecord::Migration[5.2]
   def up
     execute <<-SQL.squish
