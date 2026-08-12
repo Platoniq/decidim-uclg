@@ -11,7 +11,7 @@ gem "decidim-conferences", DECIDIM_VERSION
 
 gem "decidim-decidim_awesome", "~> 0.12.3"
 gem "decidim-direct_verifications", git: "https://github.com/Platoniq/decidim-verifications-direct_verifications", branch: "main"
-gem "decidim-term_customizer", git: "https://github.com/Platoniq/decidim-module-term_customizer", branch: "master"
+gem "decidim-term_customizer", github: "openpoke/decidim-module-term_customizer", branch: "release/0.29-stable"
 
 gem "appsignal"
 gem "bootsnap", "~> 1.4"
