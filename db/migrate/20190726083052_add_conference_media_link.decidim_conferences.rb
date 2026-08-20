@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This migration comes from decidim_conferences (originally 20181015100301)
-
+# This file has been modified by `decidim upgrade:migrations` task on 2026-08-20 08:52:20 UTC
 class AddConferenceMediaLink < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_conferences_media_links do |t|

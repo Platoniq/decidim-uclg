@@ -391,6 +391,11 @@ GEM
       decidim-core (= 0.31.4)
     decidim-generators (0.31.4)
       decidim-core (= 0.31.4)
+    decidim-initiatives (0.31.4)
+      decidim-admin (= 0.31.4)
+      decidim-comments (= 0.31.4)
+      decidim-core (= 0.31.4)
+      decidim-verifications (= 0.31.4)
     decidim-meetings (0.31.4)
       decidim-core (= 0.31.4)
       decidim-forms (= 0.31.4)
@@ -1151,6 +1156,7 @@ DEPENDENCIES
   decidim-decidim_awesome!
   decidim-dev (= 0.31.4)
   decidim-direct_verifications!
+  decidim-initiatives (= 0.31.4)
   decidim-term_customizer!
   faker
   figaro (~> 1.2)
