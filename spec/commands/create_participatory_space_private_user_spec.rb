@@ -14,12 +14,16 @@ module Decidim::Admin
     let!(:name) { "Weird Guy" }
     let!(:user) { create(:user, email: "my_email@example.org", organization:, invitation_token: "foo", invitation_accepted_at: nil) }
     let!(:current_user) { create(:user, email: "some_email@example.org", organization:) }
+    let(:role) { generate_localized_title(:role) }
+    let(:published) { true }
     let(:form) do
       double(
         invalid?: false,
         email:,
         name:,
-        current_user:
+        current_user:,
+        role:,
+        published:
       )
     end
 

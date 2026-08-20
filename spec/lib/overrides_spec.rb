@@ -9,18 +9,18 @@ checksums = [
   {
     package: "decidim-core",
     files: {
-      "/app/packs/stylesheets/decidim/legacy/email.scss" => "be1d2c978a80cca492954666677cd4bd",
-      "/app/views/layouts/decidim/_logo.html.erb" => "fbacc5a8c45d45be0bd4e42fbec40d8f",
+      "/app/packs/stylesheets/decidim/legacy/email.scss" => "7edc1be320cdd9605bec4e0caba132d5",
+      "/app/views/layouts/decidim/_logo.html.erb" => "e6e7c1e8c1fb3954760c768b9f051b3b",
       "/app/views/layouts/decidim/_mailer_logo.html.erb" => "8c6978d195e708d7d85ccfe63b710fa8",
-      "/app/views/layouts/decidim/mailer.html.erb" => "23a555f9c674d7db4b0ea6582525e2d6",
+      "/app/views/layouts/decidim/mailer.html.erb" => "6a08103c75e5db737a38cd365428a177",
       "/app/commands/decidim/invite_user.rb" => "d23dd6cb2a2c500d9e56deef26792ffd",
       "/app/commands/decidim/invite_user_again.rb" => "d2cbe35da2285cd9c637a2434124842e"
     }
   }, {
     package: "decidim-admin",
     files: {
-      "/app/controllers/decidim/admin/concerns/has_private_users.rb" => "1a0f3f68684f0a0655d156b73bea8cdb",
-      "/app/commands/decidim/admin/create_participatory_space_private_user.rb" => "81b2a47da331d70d8f530777b9b11dc2"
+      "/app/controllers/decidim/admin/concerns/has_private_users.rb" => "3db7f6a3e8ba1f616122c89f2c9510f8",
+      "/app/commands/decidim/admin/create_participatory_space_private_user.rb" => "1524537dc2f1518693d79e2daf04be1b"
     }
   }, {
     package: "decidim-assemblies",
@@ -30,9 +30,9 @@ checksums = [
   }, {
     package: "decidim-conferences",
     files: {
-      "/app/views/decidim/conferences/conference_program/show.html.erb" => "e1f0729222b339db3d1fc4b6902ef01a",
-      "/app/views/decidim/conferences/conferences/show.html.erb" => "f473d522ddc4c5f3352f3fc55cffdd7d",
-      "/app/views/decidim/conferences/conferences/_conference_hero.html.erb" => "da4e86d29cf4272356d4bed6130d641f"
+      "/app/views/decidim/conferences/conference_program/show.html.erb" => "3ac67685fe8a8f7efcce0416461e4277",
+      "/app/views/decidim/conferences/conferences/show.html.erb" => "16ff68b3c8208f93813f8f6354528c17",
+      "/app/views/decidim/conferences/conferences/_conference_hero.html.erb" => "c49e3bfd348285ea3fcd6abcd00cf350"
     }
   }, {
     package: "decidim-debates",
