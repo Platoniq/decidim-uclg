@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "Admin creates direct verifications" do
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, available_locales: %w(en es fr ca)) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   let(:i18n_scope) { "decidim.direct_verifications.verification.admin.direct_verifications" }

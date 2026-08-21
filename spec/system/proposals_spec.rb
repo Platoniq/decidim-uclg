@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "Visit a proposal", :perform_enqueued do
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, available_locales: %w(en es fr ca)) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:proposals_component) { create(:component, manifest_name: :proposals, participatory_space: participatory_process) }
   let!(:proposal) { create(:proposal, component: proposals_component) }

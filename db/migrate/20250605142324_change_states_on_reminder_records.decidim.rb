@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-# This migration comes from decidim (originally 20230427105701)
 
+# This migration comes from decidim (originally 20230427105701)
+# This file has been modified by `decidim upgrade:migrations` task on 2026-08-20 08:52:21 UTC
 class ChangeStatesOnReminderRecords < ActiveRecord::Migration[6.1]
   class ReminderRecord < ApplicationRecord
     self.table_name = :decidim_reminder_records
