@@ -1,4 +1,4 @@
-<% current_conference = Rails.application.secrets.dig(:uclg, :conferences).find { |conference| conference[:slug] == current_participatory_space.slug } %>
+<% current_conference = Decidim::Uclg::SPECIAL_CONFERENCES.find { |conference| conference[:slug] == current_participatory_space.slug } %>
 <% current_settings = meeting_component.settings %>
 
 <% if current_conference && current_conference[:page_background] %>

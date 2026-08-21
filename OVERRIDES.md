@@ -1,22 +1,17 @@
 # decidim-uclg — gem overrides
 
-_Generated 2026-08-20. Currently on Decidim **0.31.4**._
+_Generated 2026-08-21. Currently on Decidim **0.31.4**._
 
 This app patches files that live inside the decidim gems. `spec/lib/overrides_spec.rb` stores an MD5 of each upstream original, so the suite fails the moment upstream changes one — that is the signal that a local copy has drifted from the version it was forked from.
 
-**18 guarded file(s).**
+**12 guarded file(s).**
 
-## Ruby classes (11)
+## Ruby classes (6)
 
 Copied or patched via an `*Override` concern. Needs a real diff of upstream old-vs-new and the customisation re-applied.
 
 | package | file | recorded checksum |
 |---|---|---|
-| `decidim-core` | `/app/commands/decidim/invite_user.rb` | `d23dd6cb…` |
-| `decidim-core` | `/app/commands/decidim/invite_user_again.rb` | `d2cbe35d…` |
-| `decidim-admin` | `/app/controllers/decidim/admin/concerns/has_private_users.rb` | `3db7f6a3…` |
-| `decidim-admin` | `/app/commands/decidim/admin/create_participatory_space_private_user.rb` | `1524537d…` |
-| `decidim-assemblies` | `/app/controllers/decidim/assemblies/admin/participatory_space_private_users_controller.rb` | `964eef14…` |
 | `decidim-debates` | `/app/presenters/decidim/debates/official_author_presenter.rb` | `f47ad586…` |
 | `decidim-direct_verifications` | `/app/controllers/decidim/direct_verifications/verification/admin/authorizations_controller.rb` | `5b713aa7…` |
 | `decidim-direct_verifications` | `/app/controllers/decidim/direct_verifications/verification/admin/direct_verifications_controller.rb` | `dfe29d53…` |
@@ -36,14 +31,6 @@ Full copies of gem templates. Re-copy the 0.31 version and re-apply the local ch
 | `decidim-conferences` | `/app/views/decidim/conferences/conference_program/show.html.erb` | `3ac67685…` |
 | `decidim-conferences` | `/app/views/decidim/conferences/conferences/show.html.erb` | `16ff68b3…` |
 | `decidim-conferences` | `/app/views/decidim/conferences/conferences/_conference_hero.html.erb` | `c49e3bfd…` |
-
-## Assets (1)
-
-Stylesheets/JS copied from the gem.
-
-| package | file | recorded checksum |
-|---|---|---|
-| `decidim-core` | `/app/packs/stylesheets/decidim/legacy/email.scss` | `7edc1be3…` |
 
 ## For the 0.31 upgrade
 

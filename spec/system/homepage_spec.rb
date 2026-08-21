@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "Visit the home page", :perform_enqueued do
-  let(:organization) { create(:organization) }
+  let(:organization) { create(:organization, available_locales: %w(en es fr ca)) }
 
   before do
     switch_to_host(organization.host)
